@@ -83,7 +83,14 @@ function Navbar() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="flex justify-between items-center h-16 md:h-[72px]">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-2 flex-shrink-0">
+            <a 
+              href="#home" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="flex items-center gap-2 flex-shrink-0"
+            >
               <Image
                 alt="Calaraya Logo"
                 src="https://res.cloudinary.com/dk16ng09n/image/upload/v1766687461/personal/web-porto/ChatGPT_Image_Dec_26_2025_01_29_22_AM_os33rl.webp"
@@ -102,6 +109,12 @@ function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => {
+                    if (link.href === "#home") {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
                   className="text-[13px] font-medium text-stone-500 hover:text-stone-900 transition-colors duration-200 tracking-wide"
                 >
                   {link.name}
@@ -172,7 +185,13 @@ function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={handleLinkClick}
+                  onClick={(e) => {
+                    if (link.href === "#home") {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                    handleLinkClick();
+                  }}
                   className="py-3 px-4 text-[15px] font-medium text-stone-700 hover:text-stone-900 hover:bg-stone-50 rounded-lg transition-all duration-200 active:bg-stone-100"
                   style={{
                     transitionDelay: isOpen ? `${i * 30}ms` : "0ms",

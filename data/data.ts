@@ -244,6 +244,23 @@ const portfolios = [
       "https://res.cloudinary.com/dk16ng09n/image/upload/v1776399437/personal/web-porto/marooncustom_jxuweq.png",
     url: "https://calaraya.vercel.app/amry-erinka?id=QQty2V",
   },
+   {
+    title: "Fajar & Rike",
+    description: "",
+    product: "Undangan Digital",
+    type: "Maroon Custom",
+    image:
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1778410709/personal/web-porto/rike_t7xvt0.png",
+    url: "https://calaraya.vercel.app/fajar-rike?id=nliBqA",
+  },
+  {
+    title: "Calapos",
+    description: "Transaction Management - Inventory Tracking - Sales Reporting - Real-time Dashboard - Receipt Printing",
+    product: "Website",
+    type: "Point of Sales",
+    image: "https://res.cloudinary.com/dk16ng09n/image/upload/v1778410956/personal/web-porto/ss_pos_x6jwv7.png",
+    url: "https://calapos.shop",
+  },
 ];
 
 const reviews = [
@@ -491,7 +508,7 @@ const websiteServices = [
       "Performa cepat",
       "CMS Admin Panel",
     ],
-    priceStart: "Rp 350rb",
+    priceStart: "Rp 400rb",
     popular: false,
   },
   {
@@ -505,7 +522,7 @@ const websiteServices = [
       "Pelacakan pesanan",
       "Multi pengguna/admin",
     ],
-    priceStart: "Rp 2jt",
+    priceStart: "Rp 1.5jt",
     popular: true,
   },
   {
@@ -518,7 +535,7 @@ const websiteServices = [
       "Notifikasi aplikasi ",
       "Tampilan mudah digunakan ",
     ],
-    priceStart: "Rp 2.5jt",
+    priceStart: "Rp 2jt",
     popular: false,
   },
 ];
