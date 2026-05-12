@@ -26,7 +26,7 @@ const ClosingSection = () => {
               <h2 className={`${lagunac.className} text-base font-normal`}>
                 Thank You
               </h2>
-              <p className={`${poppins.className} text-xs font-normal border border-red-500`}>
+              <p className={`${poppins.className} text-xs font-normal`}>
                 It’s an honor and a joy for us if Mr./Mrs./Brother/sister was
                 pleased to attend and give a prayer of blessing to us.
               </p>
