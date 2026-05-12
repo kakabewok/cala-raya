@@ -108,17 +108,17 @@ const EventInfo = () => {
           <p
             className={`${commuters.className} text-md font-light mb-2 text-neutral-700 text-center`}
           >
-            {data?.location || "-"}
+            {data?.rundowns?.[0].location || "-"}
           </p>
 
           <p
             className={`${commuters.className} text-[10px] font-light mb-6 text-neutral-500 text-center`}
           >
-            {data?.location_detail || "-"}
+            {data?.rundowns?.[0].location_detail || "-"}
           </p>
 
           <Link
-            href={data?.location_url || "#"}
+            href={data?.rundowns?.[0].location_url || "#"}
             target="_blank"
             className={`${commuters.className} font-semibold py-2 px-4 text-xs bg-transparent rounded-none border border-neutral-700 text-neutral-700 cursor-pointer hover:bg-transparent`}
           >
