@@ -54,7 +54,7 @@ const GiftInfo = () => {
               key={idx}
             >
               <p className="font-bold mb-1 text-xs">{gift.provider_name}</p>
-              <p className="mb-1 text-xs">{gift.account_number}</p>
+            <p className={`${lagunac.className} mb-1 text-xs`}>{gift.account_number}</p>
               <p className="mb-4 text-xs">
                 a.n. <span className="font-bold">{gift.account_holder}</span>
               </p>
