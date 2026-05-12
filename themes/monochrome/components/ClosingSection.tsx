@@ -17,7 +17,7 @@ const ClosingSection = () => {
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-black/20 to-black/75"></div>
-        {(data?.host_one_social_media || data?.host_two_social_media) && (
+        {(
           <div
             className={`w-full absolute right-0 top-0 text-neutral-200 p-6 text-left`}
             data-aos="fade-up"
@@ -26,14 +26,14 @@ const ClosingSection = () => {
               <h2 className={`${lagunac.className} text-base font-normal`}>
                 Thank You
               </h2>
-              <p className={`${poppins.className} text-xs font-normal`}>
+              <p className={`${poppins.className} text-xs font-normal border border-red-500`}>
                 It’s an honor and a joy for us if Mr./Mrs./Brother/sister was
                 pleased to attend and give a prayer of blessing to us.
               </p>
               <p className={`${poppins.className} text-xs font-normal`}>
                 With love, <br />{" "}
                 <span className="font-semibold">
-                  {data.host_two_nickname} & {data.host_one_nickname}
+                  {data?.host_two_nickname} & {data?.host_one_nickname}
                 </span>
               </p>
             </div>
