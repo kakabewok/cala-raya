@@ -32,11 +32,15 @@ const faqs = [
     a: "Pembuatan undangan digital memakan waktu 1 hari kerja setelah semua data diterima lengkap.",
   },
   {
-    q: "Berapa lama pembuatan website?",
-    a: "Pembuatan website paling cepat memakan waktu 1-2 minggu tergantung kompleksitas fitur dan jumlah halaman yang diinginkan.",
+    q: "Berapa lama pembuatan undangan digital custom?",
+    a: "Pembuatan undangan digital memakan waktu 5-7 hari kerja setelah semua data diterima lengkap.",
   },
   {
-    q: "Apakah bisa revisi?",
+    q: "Berapa lama pembuatan website?",
+    a: "Pembuatan website paling cepat memakan waktu 2-3 minggu tergantung kompleksitas fitur dan jumlah halaman yang diinginkan.",
+  },
+  {
+    q: "Apakah undangan digital dan website bisa revisi?",
     a: "Bisa, kami menyediakan unlimited revisi untuk undangan digital dan menyesuaikan untuk revisi website hingga hasil sesuai keinginan.",
   },
   {
@@ -49,7 +53,7 @@ const faqs = [
   },
   {
     q: "Bagaimana cara menyebarkan undangan?",
-    a: "Undangan dibagikan melalui halaman admin yang kami sediakan. Anda akan mendapatkan akun khusus untuk mengelola dan membagikan link undangan kepada tamu.",
+    a: "Undangan dibagikan melalui halaman admin yang kami sediakan. Anda akan mendapatkan akun khusus untuk mengelola dan membagikan link undangan kepada tamu melalui Whatsapp, Instagram dan lainnya.",
   },
   {
     q: "Berapa lama masa berlaku undangan?",
@@ -62,8 +66,8 @@ const faqs = [
 ];
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Why Us", href: "#why-us" },
+  { name: "Beranda", href: "#home" },
+  { name: "Kenapa Kami", href: "#why-us" },
   { name: "Tema", href: "#themes" },
   { name: "Website", href: "#website" },
   { name: "Portfolio", href: "#portfolio" },
@@ -76,29 +80,29 @@ const portfolios = [
     title: "Qatia Rent",
     description:
       "Admin Page - Order Form - Email Notification - Product Management - Dashboard - PWA",
-    product: "Website", 
+    product: "Website",
     type: "Rental Website",
     image:
       "https://res.cloudinary.com/dk16ng09n/image/upload/v1765989761/personal/web-porto/qatia_tiulwx.png",
     url: "https://qatiarent.com/",
   },
   {
-    title: "Nadiah & Haris",
+    title: "Arie & Elfhira",
     description: "",
     product: "Undangan Digital",
     type: "Monochrome",
     image:
-      "https://res.cloudinary.com/dk16ng09n/image/upload/v1766313919/personal/web-porto/nadhar_rginzu.png",
-    url: "https://calaraya.vercel.app/nadiah-haris?id=XyUaw",
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1779555221/personal/web-porto/mono_lu00dd.png",
+    url: "https://calaraya.vercel.app/arie-elfhira?id=xoswlp",
   },
   {
-    title: "Dinna & Hudha",
+    title: "Amry & Erinka",
     description: "",
     product: "Undangan Digital",
-    type: "Stylish Bold",
+    type: "Stylish Bold Custom",
     image:
-      "https://res.cloudinary.com/dk16ng09n/image/upload/v1765994579/personal/web-porto/stylishbold_armbt3.png",
-    url: "https://calaraya.vercel.app/dinna-hudha?id=6yTQy",
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1776399437/personal/web-porto/marooncustom_jxuweq.png",
+    url: "https://calaraya.vercel.app/amry-erinka?id=QQty2V",
   },
   {
     title: "Bella & Syafik",
@@ -235,16 +239,17 @@ const portfolios = [
       "https://res.cloudinary.com/dk16ng09n/image/upload/v1766314384/personal/web-porto/ikhsan_tasya_vnqmcd.png",
     url: "https://calaraya.vercel.app/ihksan-tasya?id=n4cBkO",
   },
+
   {
-    title: "Amry & Erinka",
+    title: "Dinna & Hudha",
     description: "",
     product: "Undangan Digital",
-    type: "Stylish Bold Custom",
+    type: "Stylish Bold",
     image:
-      "https://res.cloudinary.com/dk16ng09n/image/upload/v1776399437/personal/web-porto/marooncustom_jxuweq.png",
-    url: "https://calaraya.vercel.app/amry-erinka?id=QQty2V",
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1765994579/personal/web-porto/stylishbold_armbt3.png",
+    url: "https://calaraya.vercel.app/dinna-hudha?id=6yTQy",
   },
-   {
+  {
     title: "Fajar & Rike",
     description: "",
     product: "Undangan Digital",
@@ -260,6 +265,15 @@ const portfolios = [
     type: "Point of Sales",
     image: "https://res.cloudinary.com/dk16ng09n/image/upload/v1778410956/personal/web-porto/ss_pos_x6jwv7.png",
     url: "https://calapos.shop",
+  },
+  {
+    title: "Nadiah & Haris",
+    description: "",
+    product: "Undangan Digital",
+    type: "Monochrome",
+    image:
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1766313919/personal/web-porto/nadhar_rginzu.png",
+    url: "https://calaraya.vercel.app/nadiah-haris?id=XyUaw",
   },
 ];
 
@@ -418,8 +432,8 @@ const allThemes = [
     category: "Wedding",
     price: "Rp 100.000",
     image:
-      "https://res.cloudinary.com/dk16ng09n/image/upload/v1765993975/personal/web-porto/magazine_yt4whr.png",
-    previewUrl: "https://calaraya.vercel.app/rahma-jalal?id=Gku6G",
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1772739077/personal/web-porto/repisi_lyqjbk.png",
+    previewUrl: "https://calaraya.vercel.app/gabriel-rilly?id=ENSWl4",
     features: [
       "RSVP",
       "Galeri",
@@ -435,8 +449,8 @@ const allThemes = [
     category: "Wedding",
     price: "Rp 100.000",
     image:
-      "https://res.cloudinary.com/dk16ng09n/image/upload/v1765994308/personal/web-porto/maroon_aohj7a.png",
-    previewUrl: "https://calaraya.vercel.app/reigiya-amar?id=1XsqW",
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1778410709/personal/web-porto/rike_t7xvt0.png",
+    previewUrl: "https://calaraya.vercel.app/fajar-rike?id=nliBqA",
     features: [
       "RSVP",
       "Galeri",
@@ -452,8 +466,8 @@ const allThemes = [
     category: "Wedding",
     price: "Rp 100.000",
     image:
-      "https://res.cloudinary.com/dk16ng09n/image/upload/v1766313919/personal/web-porto/nadhar_rginzu.png",
-    previewUrl: "https://calaraya.vercel.app/nadiah-haris?id=XyUaw",
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1779555221/personal/web-porto/mono_lu00dd.png",
+    previewUrl: "https://calaraya.vercel.app/arie-elfhira?id=xoswlp",
     features: [
       "RSVP",
       "Galeri",
@@ -469,8 +483,8 @@ const allThemes = [
     category: "Wedding",
     price: "Rp 100.000",
     image:
-      "https://res.cloudinary.com/dk16ng09n/image/upload/v1765994579/personal/web-porto/stylishbold_armbt3.png",
-    previewUrl: "https://calaraya.vercel.app/dinna-hudha?id=6yTQy",
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1776399437/personal/web-porto/marooncustom_jxuweq.png",
+    previewUrl: "https://calaraya.vercel.app/amry-erinka?id=QQty2V",
     features: [
       "RSVP",
       "Galeri",
@@ -493,7 +507,7 @@ const websiteServices = [
       "Optimal di perangkat mobile",
       "Statistik pengunjung",
     ],
-    priceStart: "Rp 300rb",
+    priceStart: "Rp 400rb",
     popular: false,
   },
   {
@@ -508,7 +522,7 @@ const websiteServices = [
       "Performa cepat",
       "CMS Admin Panel",
     ],
-    priceStart: "Rp 400rb",
+    priceStart: "Rp 500rb",
     popular: false,
   },
   {
@@ -544,7 +558,7 @@ const features = [
   {
     title: "Proses Cepat",
     description:
-      "Undangan digital jadi dalam 1 hari kerja. Website selesai dalam 1-2 minggu.",
+      "Undangan digital jadi dalam 1 hari kerja. Website selesai dalam 1-3 minggu.",
     IconComponent: ZapIcon,
   },
   {
