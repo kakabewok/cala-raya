@@ -10,6 +10,7 @@ import MaroonMonochromePage from "@/themes/maroon_monochrome/MaroonMonochromePag
 import MagazinePageCustom from "@/themes/magazine_custom/MagazinePageCustom";
 import StylishBoldPageCustom from "@/themes/stylishBold_custom/StylishBoldPageCustom";
 import MaroonPageCustom2 from "@/themes/maroon custom_2/MaroonPageCustom2";
+import MaroonPageCustom3 from "@/themes/maroon custom_3/MaroonPageCustom3";
 
 export const themeMap: Record<ThemeName, React.ComponentType> = {
   monochrome: MonochromePage,
@@ -23,4 +24,5 @@ export const themeMap: Record<ThemeName, React.ComponentType> = {
   stylishBold: StylishBoldPage,
   stylishBold_custom: StylishBoldPageCustom,
   maroon_custom_2: MaroonPageCustom2,
+  maroon_custom_3: MaroonPageCustom3,
 };

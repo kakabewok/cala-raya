@@ -29,11 +29,15 @@ html {
   --color-line-stylishb: oklch(51.4% 0.222 16.935);
   --color-text-stylishb: oklch(41% 0.159 10.272); */
 
-  /* --color-primary-stylishb: #557949; */
   --color-primary-stylishb: #4D5038;
   --color-line-stylishb: #557949;
   --color-text-stylishb: #557949;
   --color-secondary-stylishb: #D2CBB6;
+
+  --color-primary-mono3: #4D5038;
+  --color-line-mono3: #557949;
+  --color-text-mono3: #557949;
+  --color-secondary-mono3: #D2CBB6;
 
   /* #ede0d1 default*/
   /* #D2CBB6 green*/
@@ -219,15 +223,33 @@ html {
 .swing-right-fast {
   animation: swingToRight 2.6s ease-in-out infinite;
 }
+
 @keyframes steamRise {
-  0% { transform: translateY(0) scale(1); opacity: 0; }
-  50% { opacity: 0.6; }
-  100% { transform: translateY(-8px) scale(1.5); opacity: 0; }
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-8px) scale(1.5);
+    opacity: 0;
+  }
 }
 
 @keyframes floatGentle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .animate-steam {

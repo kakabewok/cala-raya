@@ -9,4 +9,5 @@ export type ThemeName =
   | "maroon_monochrome"
   | "stylishBold_custom"
   | "stylishBold"
-  | "maroon_custom_2";
+  | "maroon_custom_2"
+  | "maroon_custom_3";
