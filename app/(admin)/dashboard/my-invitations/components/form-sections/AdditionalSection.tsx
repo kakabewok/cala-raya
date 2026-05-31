@@ -104,10 +104,10 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
             </div>
           ))}
         </div>
-        
+
         {giftFields.length === 0 && (
           <div className="bg-muted/50 p-8 rounded-sm border border-dashed border-border flex flex-col items-center justify-center text-muted-foreground text-sm">
-            <p>No gift information added. Guests won't see digital wallet info.</p>
+            <p>No gift information added. Guests wont see digital wallet info.</p>
           </div>
         )}
       </div>
@@ -144,7 +144,7 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
                 <div className="flex justify-between items-start">
                   <h4 className="font-semibold text-foreground">Story Moment #{idx + 1}</h4>
                   <div className="flex gap-2">
-                     <button
+                    <button
                       type="button"
                       disabled={idx === 0}
                       onClick={() => moveStory(idx, idx - 1)}
@@ -217,7 +217,7 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
                         className="bg-foreground hover:bg-foreground/90 text-background px-4 py-2 rounded-sm text-sm font-medium transition-colors whitespace-nowrap"
                       />
                     </div>
-                    
+
                     {watch(`stories.${idx}.image_url`) && (
                       <div className="relative aspect-video rounded-sm overflow-hidden border border-border bg-muted">
                         <Image
@@ -234,7 +234,7 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
               </div>
             ))}
           </div>
-          
+
           {storyFields.length === 0 && (
             <div className="bg-muted/50 p-8 rounded-sm border border-dashed border-border flex flex-col items-center justify-center text-muted-foreground text-sm">
               <p>Share your love story with your guests!</p>

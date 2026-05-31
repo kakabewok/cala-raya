@@ -36,7 +36,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Eye, EyeOff, CheckSquare, Trash2, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import { EyeOff, CheckSquare, Trash2, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 
 interface DataWithId {
   id: number;
@@ -198,11 +198,9 @@ export function DataTable<TData extends DataWithId, TValue>({
         onClick={() =>
           table.toggleAllPageRowsSelected(!table.getIsAllPageRowsSelected())
         }
-        className={`flex items-center gap-2 ${
-          selectedIds.length < 1 ? "mb-4" : ""
-        } ${
-          data.length < 1 ? "hidden" : ""
-        }`}
+        className={`flex items-center gap-2 ${selectedIds.length < 1 ? "mb-4" : ""
+          } ${data.length < 1 ? "hidden" : ""
+          }`}
       >
         <CheckSquare className="w-4 h-4" />
         {table.getIsAllPageRowsSelected() ? "Deselect all" : "Select all"}
@@ -237,9 +235,9 @@ export function DataTable<TData extends DataWithId, TValue>({
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
                   );
                 })}
@@ -256,9 +254,8 @@ export function DataTable<TData extends DataWithId, TValue>({
                   }}
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className={`${
-                    row.getIsSelected() ? "!bg-muted" : ""
-                  } border-b border-border cursor-pointer`}
+                  className={`${row.getIsSelected() ? "!bg-muted" : ""
+                    } border-b border-border cursor-pointer`}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
