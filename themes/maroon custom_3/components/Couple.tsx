@@ -135,7 +135,7 @@ const Couple = () => {
 
         {/* PROFIL WANITA (ATAS) */}
         <div className="flex flex-col items-center text-center animate-fade-in" data-aos="fade-up">
-          <h2 className={`${amalfiCoast.className} font-medium text-3xl md:text-6xl text-primary-mono3 mb-5 capitalize`}>
+          <h2 className={`${amalfiCoast.className} font-medium text-xl text-primary-mono3 mb-5 capitalize`}>
             {data?.host_two_name}
           </h2>
           <p className={`${playfair.className} text-xs md:text-sm font-light text-text-mono3 mb-4 italic`}>
@@ -155,7 +155,7 @@ const Couple = () => {
 
         {/* PROFIL LAKI-LAKI (BAWAH) */}
         <div className="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
-          <h2 className={`${amalfiCoast.className} font-medium text-2xl text-primary-mono3 mb-2 capitalize`}>
+          <h2 className={`${amalfiCoast.className} font-medium text-xl text-primary-mono3 mb-2 capitalize`}>
             {data?.host_one_name}
           </h2>
           <p className={`${playfair.className} text-xs md:text-sm font-light text-text-mono3 mb-4 italic`}>
