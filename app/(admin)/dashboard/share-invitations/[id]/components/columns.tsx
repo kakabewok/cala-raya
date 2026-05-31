@@ -21,7 +21,10 @@ export const columns: ColumnDef<GuestColumn>[] = [
         </Button>
       );
     },
-    cell: ({ row }) => row.index + 1,
+    cell: ({ row, table }) => {
+      const { pageIndex, pageSize } = table.getState().pagination;
+      return pageIndex * pageSize + row.index + 1;
+    },
   },
   {
     accessorKey: "name",

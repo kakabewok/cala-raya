@@ -102,53 +102,40 @@ const InvitationCard = ({ invitation, onDelete }: InvitationCardProps) => {
 
   return (
     <>
-      <div className="overflow-hidden relative hover:shadow-lg bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-700 transition-all duration-300 group">
+      <div className="overflow-hidden relative bg-card p-5 rounded-sm border border-border transition-colors hover:bg-muted/30 group">
         {invitation.additional_info && (
           <BadgeCorner content={invitation.additional_info} />
         )}
         
-        {/* Status Badge */}
-        {/* <div className="absolute top-4 right-4">
-          <span
-            className={`text-xs font-medium px-2.5 py-1 rounded-full ${
-              invitation.is_active
-                ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
-                : "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400"
-            }`}
-          >
-            {invitation.is_active ? "Active" : "Inactive"}
-          </span>
-        </div> */}
-
         {/* Content */}
-        <div className="mb-4 pr-20">
-          <h2 className="font-bold text-lg mb-1 text-slate-900 dark:text-slate-100">
+        <div className="mb-3 pr-16">
+          <h2 className="font-semibold text-base mb-1 text-foreground">
             {invitation.host_one_nickname} & {invitation.host_two_nickname}
           </h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1">
+          <p className="text-sm text-muted-foreground">
             {formatDate(invitation.event_date)}
           </p>
         </div>
 
-        <Separator className="bg-slate-200 dark:bg-slate-700 my-3" />
+        <Separator className="bg-border my-3" />
 
         {/* Theme Badge */}
         {invitation.themes?.name && (
           <div className="mb-3">
-            <span className="bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400 text-xs font-medium px-2.5 py-1 rounded-md">
+            <span className="bg-muted text-muted-foreground text-xs font-medium px-2 py-1 rounded-sm">
               {invitation.themes.name}
             </span>
           </div>
         )}
 
         {/* Action Buttons */}
-        <div className="flex justify-end items-center gap-2">
+        <div className="flex justify-end items-center gap-1">
           <Button
             variant="ghost"
             size="sm"
             onClick={handleView}
             disabled={isPreviewing}
-            className="h-8 px-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="h-8 px-2.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
             title="Preview invitation"
           >
             {isPreviewing ? (
@@ -162,7 +149,7 @@ const InvitationCard = ({ invitation, onDelete }: InvitationCardProps) => {
             variant="ghost"
             size="sm"
             onClick={handleShare}
-            className="h-8 px-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="h-8 px-2.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
             title="Share invitation"
           >
             <Share2 className="w-4 h-4" />
@@ -172,7 +159,7 @@ const InvitationCard = ({ invitation, onDelete }: InvitationCardProps) => {
             <Button
               variant="ghost"
               size="sm"
-              className="h-8 px-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="h-8 px-2.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
               title="Edit invitation"
             >
               <Edit className="w-4 h-4" />
@@ -183,7 +170,7 @@ const InvitationCard = ({ invitation, onDelete }: InvitationCardProps) => {
             variant="ghost"
             size="sm"
             onClick={() => setDeleteDialogOpen(true)}
-            className="h-8 px-3 text-red-600 hover:text-red-700 hover:bg-red-50 dark:text-red-400 dark:hover:text-red-300 dark:hover:bg-red-900/20 transition-colors"
+            className="h-8 px-2.5 text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
             title="Delete invitation"
           >
             <Trash2 className="w-4 h-4" />
@@ -209,7 +196,7 @@ const InvitationCard = ({ invitation, onDelete }: InvitationCardProps) => {
             <AlertDialogAction
               onClick={handleDelete}
               disabled={isDeleting}
-              className="bg-red-600 hover:bg-red-700 focus:ring-red-600"
+              className="bg-destructive text-white hover:bg-destructive/90"
             >
               {isDeleting ? (
                 <>

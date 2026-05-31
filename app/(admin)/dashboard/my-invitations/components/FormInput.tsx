@@ -20,22 +20,23 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
           ref={ref}
           {...props}
           className={`
-            w-full px-4 py-2
-            border rounded-md
-            bg-white/70 dark:bg-slate-950
-            focus:outline-none focus:ring-0
+            flex h-10 w-full px-3 py-2 text-sm
+            border border-border rounded-sm
+            bg-background text-foreground
+            focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring
             transition-colors
+            disabled:cursor-not-allowed disabled:opacity-50
             ${
               error
-                ? "border-red-500 focus:border-red-500"
-                : "border-gray-300 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-600"
+                ? "border-destructive focus-visible:ring-destructive"
+                : ""
             }
             ${className}
           `}
         />
 
         {description && !error && (
-          <p className="text-gray-500 dark:text-slate-400 text-xs mt-2 italic">
+          <p className="text-muted-foreground text-xs mt-2">
             {description}
           </p>
         )}

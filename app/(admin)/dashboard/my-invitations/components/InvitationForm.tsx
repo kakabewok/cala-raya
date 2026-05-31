@@ -239,9 +239,9 @@ export function InvitationForm({
     <div className="pb-20">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Tab-Based Navigation */}
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm overflow-hidden">
+        <div className="bg-card rounded-sm border border-border overflow-hidden">
           {/* Horizontal Tabs */}
-          <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+          <div className="border-b border-border bg-muted/30">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex min-w-max px-4 md:px-6">
                 {tabs.map((tab) => (
@@ -249,16 +249,16 @@ export function InvitationForm({
                     key={tab.id}
                     type="button"
                     onClick={() => setActiveTab(tab.id)}
-                    className={`relative flex items-center gap-2 px-4 md:px-6 py-4 text-sm font-semibold transition-all whitespace-nowrap ${
+                    className={`relative flex items-center gap-2 px-4 md:px-6 py-4 text-sm font-semibold transition-colors whitespace-nowrap ${
                       activeTab === tab.id
-                        ? "text-indigo-600 dark:text-indigo-400"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     <span className={`transition-colors ${
                       activeTab === tab.id 
-                        ? "text-indigo-600 dark:text-indigo-400" 
-                        : "text-slate-400"
+                        ? "text-foreground" 
+                        : "text-muted-foreground"
                     }`}>
                       {tab.icon}
                     </span>
@@ -266,12 +266,12 @@ export function InvitationForm({
                     
                     {/* Validation Error Indicator */}
                     {hasTabErrors(tab.id) && (
-                      <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                      <span className="absolute top-2 right-2 w-2 h-2 bg-destructive rounded-full animate-pulse" />
                     )}
                     
                     {/* Active Tab Indicator */}
                     {activeTab === tab.id && (
-                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-t-full" />
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-foreground rounded-t-sm" />
                     )}
                   </button>
                 ))}
@@ -303,12 +303,12 @@ export function InvitationForm({
           </div>
 
           {/* Navigation Footer */}
-          <div className="px-6 py-4 border-t bg-slate-50 dark:bg-slate-800/30 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="px-6 py-4 border-t border-border bg-muted/30 flex flex-col sm:flex-row justify-between items-center gap-4">
             <button
               type="button"
               onClick={prevTab}
               disabled={currentIndex === 0}
-              className="flex items-center gap-2 px-4 py-2 text-slate-600 dark:text-slate-400 disabled:opacity-30 disabled:cursor-not-allowed font-semibold hover:bg-white dark:hover:bg-slate-800 rounded-lg transition-all"
+              className="flex items-center gap-2 px-4 py-2 text-muted-foreground disabled:opacity-30 disabled:cursor-not-allowed font-semibold hover:bg-background rounded-sm transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Previous</span>
@@ -322,8 +322,8 @@ export function InvitationForm({
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     activeTab === tab.id
-                      ? "bg-indigo-600 dark:bg-indigo-400 w-8"
-                      : "bg-slate-300 dark:bg-slate-700 hover:bg-slate-400"
+                      ? "bg-foreground w-8"
+                      : "bg-border hover:bg-muted-foreground"
                   }`}
                   aria-label={`Go to ${tab.label}`}
                 />
@@ -335,7 +335,7 @@ export function InvitationForm({
                 type="button"
                 onClick={nextTab}
                 disabled={currentIndex === tabs.length - 1}
-                className="flex items-center gap-2 px-6 py-2.5 bg-slate-800 dark:bg-slate-700 text-white rounded-xl font-semibold hover:bg-slate-900 dark:hover:bg-slate-600 transition-all shadow-md active:scale-95 disabled:opacity-30"
+                className="flex items-center gap-2 px-6 py-2.5 bg-foreground text-background rounded-sm font-semibold hover:bg-foreground/90 transition-colors shadow-sm disabled:opacity-30"
               >
                 <span className="hidden sm:inline">Next</span>
                 <ChevronRight className="w-4 h-4" />
@@ -346,14 +346,14 @@ export function InvitationForm({
 
         {/* Global Action Footer - Sticky for Desktop, Persistent for Mobile */}
         <div className="sticky bottom-6 mt-10 z-30">
-          <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4 max-w-4xl mx-auto ring-1 ring-slate-900/5 dark:ring-white/5">
+          <div className="bg-card border border-border p-4 rounded-sm shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
             <div className="flex items-center gap-3">
-              <div className="bg-indigo-100 dark:bg-indigo-900/40 p-2 rounded-lg text-indigo-600 dark:text-indigo-400">
-                <Sparkles className="w-5 h-5 animate-pulse" />
+              <div className="bg-muted p-2 rounded-sm border border-border text-foreground">
+                <Sparkles className="w-5 h-5" />
               </div>
               <div className="hidden sm:block">
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Status</p>
-                <p className="text-sm font-black text-slate-700 dark:text-slate-300">
+                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Status</p>
+                <p className="text-sm font-semibold text-foreground">
                   {isEditMode ? "Editing Invitation" : "New Invitation"}
                 </p>
               </div>
@@ -363,16 +363,16 @@ export function InvitationForm({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 md:flex-none flex items-center justify-center gap-2 px-10 py-3 bg-indigo-600 text-white rounded-xl font-black hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 dark:shadow-none disabled:opacity-50 active:scale-95 group"
+                className="flex-1 md:flex-none flex items-center justify-center gap-2 px-10 py-3 bg-foreground text-background rounded-sm font-semibold hover:bg-foreground/90 transition-colors shadow-sm disabled:opacity-50 group"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-background/30 border-t-background rounded-full animate-spin" />
                     <span>Processing...</span>
                   </>
                 ) : (
                   <>
-                    <Save className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    <Save className="w-5 h-5" />
                     <span>{isEditMode ? "Save All Changes" : "Publish Invitation"}</span>
                   </>
                 )}

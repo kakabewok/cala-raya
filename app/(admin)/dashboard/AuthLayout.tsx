@@ -13,8 +13,7 @@ const AuthenticatedLayout: React.FC<{ children: ReactNode }> = ({
 
   return (
     <div
-      className="text-slate-800 bg-gradient-to-tl from-blue-200 via-purple-100 to-green-100
-         dark:text-slate-100 dark:bg-gradient-to-br dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800"
+      className="text-foreground bg-background"
     >
       {loading && <GeneralLoading />}
       <div className="flex h-screen overflow-hidden">

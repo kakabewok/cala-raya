@@ -95,7 +95,7 @@ export default function GallerySection({ form, folder }: SectionProps) {
             <div className="flex justify-between items-end border-b pb-2">
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-bold capitalize text-slate-800 dark:text-slate-100">
+                  <h3 className="text-lg font-semibold capitalize text-foreground">
                     {type.replace(/-/g, " ")}
                   </h3>
                   {/* Upload limit badge */}
@@ -115,7 +115,7 @@ export default function GallerySection({ form, folder }: SectionProps) {
                     )}
                   </span>
                 </div>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
                   {isGallery
                     ? `Add photos for your gallery (max ${maxAllowed})`
                     : `Upload ${type.replace(/-/g, " ")} image (max 1)`}
@@ -139,7 +139,7 @@ export default function GallerySection({ form, folder }: SectionProps) {
                   isMultiple={isGallery}
                   maxFiles={maxAllowed ? maxAllowed - typeImages.length : 1}
                   label={typeImages.length > 0 ? "Add More" : "Upload"}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer"
+                  className="bg-foreground hover:bg-foreground/90 text-background px-4 py-2 rounded-sm text-sm font-medium transition-colors cursor-pointer"
                 />
               )}
             </div>
@@ -166,7 +166,7 @@ export default function GallerySection({ form, folder }: SectionProps) {
 
                       return (
                         <SortableItem key={field.id} id={field.id}>
-                          <div className="group relative aspect-[4/3] rounded-xl overflow-hidden border-2 border-transparent hover:border-indigo-500 transition-all shadow-sm hover:shadow-md bg-slate-100 dark:bg-slate-800">
+                          <div className="group relative aspect-[4/3] rounded-sm overflow-hidden border border-border hover:border-foreground transition-all shadow-sm bg-muted/30">
                             <Image
                               src={watch(`images.${idx}.url`) || "/placeholder.png"}
                               alt={`Image ${idx}`}
@@ -204,9 +204,9 @@ export default function GallerySection({ form, folder }: SectionProps) {
                 </div>
               </DndContext>
             ) : (
-              <div className="h-32 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl flex flex-col items-center justify-center text-slate-400 bg-slate-50/50 dark:bg-slate-900/50">
+              <div className="h-32 border border-dashed border-border rounded-sm flex flex-col items-center justify-center text-muted-foreground bg-muted/30">
                 <ImageIcon className="w-8 h-8 mb-2 opacity-20" />
-                <p className="text-sm italic">
+                <p className="text-sm">
                   No images uploaded for this section
                 </p>
               </div>
@@ -217,7 +217,7 @@ export default function GallerySection({ form, folder }: SectionProps) {
 
       {/* Validation Error Banner */}
       {form.formState.errors.images && (
-        <div className="flex items-start gap-3 p-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/30 rounded-xl text-sm text-red-700 dark:text-red-400">
+        <div className="flex items-start gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-sm text-sm text-destructive">
           <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
           <span>{form.formState.errors.images.message || "Please check your image uploads."}</span>
         </div>

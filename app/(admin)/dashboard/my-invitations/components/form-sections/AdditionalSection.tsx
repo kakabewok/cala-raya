@@ -42,14 +42,14 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
   });
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-10">
       {/* Gift Info Section — always visible */}
       <div className="space-y-6">
-        <div className="flex justify-between items-center border-b pb-4">
+        <div className="flex justify-between items-center border-b border-border pb-4">
           <div className="flex items-center gap-3">
-            <Gift className="w-6 h-6 text-emerald-600" />
-            <h3 className="text-xl font-bold italic">Wedding Gift / Digital Wallet</h3>
-            <span className="text-xs font-semibold text-slate-500">
+            <Gift className="w-5 h-5 text-foreground/75" />
+            <h3 className="text-lg font-semibold text-foreground">Wedding Gift / Digital Wallet</h3>
+            <span className="text-xs text-muted-foreground font-mono bg-muted px-2 py-0.5 rounded-sm">
               {giftFields.length}/{SECTION_LIMITS.gift_infos}
             </span>
           </div>
@@ -57,7 +57,7 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
             <button
               type="button"
               onClick={() => appendGift({ provider_name: "", account_number: "", account_holder: "", gift_delivery_address: "" })}
-              className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              className="flex items-center gap-2 bg-foreground hover:bg-foreground/90 text-background px-4 py-2 rounded-sm text-sm font-medium transition-colors"
             >
               <Plus className="w-4 h-4" />
               <span>Add Account</span>
@@ -67,11 +67,11 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
 
         <div className="grid md:grid-cols-2 gap-6">
           {giftFields.map((field, idx) => (
-            <div key={field.id} className="relative p-6 border rounded-xl bg-white dark:bg-slate-900 shadow-sm border-emerald-100 dark:border-emerald-900/30">
+            <div key={field.id} className="relative p-5 border border-border rounded-sm bg-card shadow-sm">
               <button
                 type="button"
                 onClick={() => removeGift(idx)}
-                className="absolute top-4 right-4 text-red-400 hover:text-red-600 transition-colors"
+                className="absolute top-4 right-4 text-destructive hover:text-destructive/80 transition-colors p-1.5 hover:bg-destructive/10 rounded-sm"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -106,8 +106,8 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
         </div>
         
         {giftFields.length === 0 && (
-          <div className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-xl border-2 border-dashed flex flex-col items-center justify-center text-slate-400">
-            <p>No gift information added. Guests wont see digital wallet info.</p>
+          <div className="bg-muted/50 p-8 rounded-sm border border-dashed border-border flex flex-col items-center justify-center text-muted-foreground text-sm">
+            <p>No gift information added. Guests won't see digital wallet info.</p>
           </div>
         )}
       </div>
@@ -115,14 +115,14 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
       {/* Love Story Section — ONLY visible for themes with stories feature */}
       {themeFeatures.stories ? (
         <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
-          <div className="flex justify-between items-center border-b pb-4">
+          <div className="flex justify-between items-center border-b border-border pb-4">
             <div className="flex items-center gap-3">
-              <BookOpen className="w-6 h-6 text-rose-600" />
-              <h3 className="text-xl font-bold italic">Our Journey / Love Story</h3>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-600 text-white">
+              <BookOpen className="w-5 h-5 text-foreground/75" />
+              <h3 className="text-lg font-semibold text-foreground">Our Journey / Love Story</h3>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-sm bg-red-600 text-white">
                 NETFLIX
               </span>
-              <span className="text-xs font-semibold text-slate-500">
+              <span className="text-xs text-muted-foreground font-mono bg-muted px-2 py-0.5 rounded-sm">
                 {storyFields.length}/{SECTION_LIMITS.stories}
               </span>
             </div>
@@ -130,7 +130,7 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
               <button
                 type="button"
                 onClick={() => appendStory({ title: "", content: "", image_url: "", story_date: "", order_number: storyFields.length })}
-                className="flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                className="flex items-center gap-2 bg-foreground hover:bg-foreground/90 text-background px-4 py-2 rounded-sm text-sm font-medium transition-colors"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Story</span>
@@ -140,15 +140,15 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
 
           <div className="space-y-6">
             {storyFields.map((field, idx) => (
-              <div key={field.id} className="p-6 border rounded-xl bg-white dark:bg-slate-900 shadow-sm space-y-6 relative border-rose-100 dark:border-rose-900/30">
+              <div key={field.id} className="p-5 border border-border rounded-sm bg-card shadow-sm space-y-4 relative">
                 <div className="flex justify-between items-start">
-                  <h4 className="font-bold text-rose-700">Story Moment #{idx + 1}</h4>
+                  <h4 className="font-semibold text-foreground">Story Moment #{idx + 1}</h4>
                   <div className="flex gap-2">
                      <button
                       type="button"
                       disabled={idx === 0}
                       onClick={() => moveStory(idx, idx - 1)}
-                      className="p-1 border rounded disabled:opacity-30"
+                      className="p-1.5 border border-border rounded-sm bg-card hover:bg-muted text-foreground disabled:opacity-30 disabled:hover:bg-card transition-colors"
                     >
                       ↑
                     </button>
@@ -156,14 +156,14 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
                       type="button"
                       disabled={idx === storyFields.length - 1}
                       onClick={() => moveStory(idx, idx + 1)}
-                      className="p-1 border rounded disabled:opacity-30"
+                      className="p-1.5 border border-border rounded-sm bg-card hover:bg-muted text-foreground disabled:opacity-30 disabled:hover:bg-card transition-colors"
                     >
                       ↓
                     </button>
                     <button
                       type="button"
                       onClick={() => removeStory(idx)}
-                      className="p-1 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded ml-2"
+                      className="p-1.5 text-destructive hover:bg-destructive/10 rounded-sm transition-colors ml-2"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -190,7 +190,7 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
                       <textarea
                         {...register(`stories.${idx}.content`)}
                         rows={4}
-                        className="w-full px-4 py-2 border rounded-md bg-white/70 dark:bg-slate-950 focus:outline-none focus:border-rose-500"
+                        className="w-full px-3 py-2 border border-border rounded-sm bg-background focus:outline-none focus:ring-1 focus:ring-foreground text-sm"
                         placeholder="Tell the story of this moment..."
                       />
                     </div>
@@ -201,7 +201,7 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
                     <div className="flex gap-2">
                       <input
                         {...register(`stories.${idx}.image_url`)}
-                        className="flex-1 px-4 py-2 border rounded-md bg-slate-50 dark:bg-slate-950 cursor-not-allowed text-xs"
+                        className="flex-1 px-3 py-2 border border-border rounded-sm bg-muted text-muted-foreground cursor-not-allowed text-xs"
                         readOnly
                         placeholder="Upload photo..."
                       />
@@ -214,12 +214,12 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
                           setValue(`stories.${idx}.public_id`, data.public_id, { shouldDirty: true });
                           setValue(`stories.${idx}.resource_type`, data.resource_type, { shouldDirty: true });
                         }}
-                        className="bg-slate-800 text-white px-4 py-2 rounded-md text-sm hover:bg-slate-700"
+                        className="bg-foreground hover:bg-foreground/90 text-background px-4 py-2 rounded-sm text-sm font-medium transition-colors whitespace-nowrap"
                       />
                     </div>
                     
                     {watch(`stories.${idx}.image_url`) && (
-                      <div className="relative aspect-video rounded-lg overflow-hidden border shadow-inner bg-slate-100">
+                      <div className="relative aspect-video rounded-sm overflow-hidden border border-border bg-muted">
                         <Image
                           src={watch(`stories.${idx}.image_url`) || "/placeholder-image.png"}
                           alt="Story"
@@ -236,19 +236,19 @@ export default function AdditionalSection({ form, folder }: SectionProps) {
           </div>
           
           {storyFields.length === 0 && (
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-xl border-2 border-dashed flex flex-col items-center justify-center text-slate-400">
+            <div className="bg-muted/50 p-8 rounded-sm border border-dashed border-border flex flex-col items-center justify-center text-muted-foreground text-sm">
               <p>Share your love story with your guests!</p>
             </div>
           )}
         </div>
       ) : (
         /* Info banner when stories are not available for this theme */
-        <div className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-5 rounded-xl flex gap-4 items-start">
-          <Info className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-          <div className="text-sm text-slate-500 dark:text-slate-400">
-            <p className="font-bold">Love Story not available</p>
+        <div className="bg-muted/50 border border-border p-4 rounded-sm flex gap-3 items-start">
+          <Info className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
+          <div className="text-sm text-muted-foreground">
+            <p className="font-bold text-foreground">Love Story not available</p>
             <p>
-              The Love Story / Journey section is only available for the <span className="font-bold text-red-600">Netflix</span> theme.
+              The Love Story / Journey section is only available for the <span className="font-bold text-foreground">Netflix</span> theme.
               Switch to Netflix in Settings to enable this feature.
             </p>
           </div>

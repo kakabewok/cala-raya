@@ -83,30 +83,30 @@ export default function MusicSection({ form, folder }: SectionProps) {
         <button
           type="button"
           onClick={() => setSelectionMode("library")}
-          className={`flex-1 py-3 px-4 rounded-md border-1 transition-all flex items-center justify-center gap-2 ${
+          className={`flex-1 py-3 px-4 rounded-sm border transition-colors flex items-center justify-center gap-2 text-sm font-semibold ${
             selectionMode === "library"
-              ? "border-blue-400 bg-blue-50 text-blue-700 dark:bg-blue-900/20"
-              : "border-gray-200 dark:border-slate-800 hover:border-gray-300"
+              ? "border-foreground bg-foreground text-background"
+              : "border-border bg-card text-muted-foreground hover:bg-muted"
           }`}
         >
-          <Music className="w-5 h-5" />
+          <Music className="w-4 h-4" />
           <span>Choose from Library</span>
         </button>
         <button
           type="button"
           onClick={() => setSelectionMode("upload")}
-          className={`flex-1 py-3 px-4 rounded-md border-1 transition-all flex items-center justify-center gap-2 ${
+          className={`flex-1 py-3 px-4 rounded-sm border transition-colors flex items-center justify-center gap-2 text-sm font-semibold ${
             selectionMode === "upload"
-              ? "border-blue-400 bg-blue-50 text-blue-700 dark:bg-blue-900/20"
-              : "border-gray-200 dark:border-slate-800 hover:border-gray-300"
+              ? "border-foreground bg-foreground text-background"
+              : "border-border bg-card text-muted-foreground hover:bg-muted"
           }`}
         >
-          <Upload className="w-5 h-5" />
+          <Upload className="w-4 h-4" />
           <span>Upload Custom Music</span>
         </button>
       </div>
 
-      <div className="p-6 border rounded-md bg-white dark:bg-slate-900 shadow-sm space-y-6">
+      <div className="p-6 border border-border rounded-sm bg-card shadow-sm space-y-6">
         {selectionMode === "library" ? (
           <div className="space-y-4">
             <label className="block text-sm font-semibold">Select Background Music</label>
@@ -136,13 +136,13 @@ export default function MusicSection({ form, folder }: SectionProps) {
         ) : (
           <div className="grid md:grid-cols-2 gap-4">
             <div className="md:col-span-2">
-              <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
+              <label className="block text-sm font-semibold mb-2 text-foreground">
                 Upload Music (MP3/WAV/OGG)
               </label>
               <div className="flex gap-2">
                 <input
                   {...register("music.url")}
-                  className="flex-1 px-4 py-2 border rounded-md bg-gray-50 dark:bg-slate-950 cursor-not-allowed text-xs"
+                  className="flex-1 px-3 py-2 border border-border rounded-sm bg-muted text-muted-foreground cursor-not-allowed text-sm"
                   readOnly
                   placeholder="No file uploaded"
                 />
@@ -150,7 +150,7 @@ export default function MusicSection({ form, folder }: SectionProps) {
                   type="music"
                   label="Upload"
                   folder={folder}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition-colors whitespace-nowrap"
+                  className="bg-foreground hover:bg-foreground/90 text-background px-6 py-2 rounded-sm text-sm font-medium transition-colors whitespace-nowrap"
                   onSuccess={(data) => {
                     setValue("music.url", data.url, { shouldDirty: true, shouldValidate: true });
                     setValue("music.public_id", data.public_id, { shouldDirty: true });
@@ -160,7 +160,7 @@ export default function MusicSection({ form, folder }: SectionProps) {
                 />
               </div>
               {errors.music?.url && (
-                <p className="text-red-500 text-sm mt-1">{errors.music.url.message}</p>
+                <p className="text-destructive text-sm mt-1">{errors.music.url.message}</p>
               )}
             </div>
 
@@ -181,15 +181,15 @@ export default function MusicSection({ form, folder }: SectionProps) {
 
         {/* Audio Player Preview */}
         {currentUrl && (
-          <div className="mt-8 border-t pt-6">
+          <div className="mt-8 border-t border-border pt-6">
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
-                  <Music className="w-5 h-5 text-blue-600" />
+                <div className="w-10 h-10 bg-muted border border-border rounded-sm flex items-center justify-center">
+                  <Music className="w-5 h-5 text-foreground" />
                 </div>
                 <div>
-                  <p className="font-semibold text-sm">{watch("music.title") || "Unknown Title"}</p>
-                  <p className="text-xs text-gray-500">{watch("music.artist") || "Unknown Artist"}</p>
+                  <p className="font-semibold text-sm text-foreground">{watch("music.title") || "Unknown Title"}</p>
+                  <p className="text-xs text-muted-foreground">{watch("music.artist") || "Unknown Artist"}</p>
                 </div>
               </div>
               <button
@@ -201,7 +201,7 @@ export default function MusicSection({ form, folder }: SectionProps) {
                   setValue("music.public_id", "");
                   setValue("music.resource_type", "");
                 }}
-                className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-full transition-colors"
+                className="p-2 text-destructive hover:bg-destructive/10 rounded-sm transition-colors"
                 title="Remove Music"
               >
                 <Trash2 className="w-5 h-5" />
@@ -214,9 +214,9 @@ export default function MusicSection({ form, folder }: SectionProps) {
         )}
       </div>
       
-      <div className="p-4 bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-lg">
-        <p className="text-xs text-amber-700 dark:text-amber-400 leading-relaxed italic">
-          Tip: Recommended music file size is under 1MB for faster loading. You can compress your MP3 files at <a href="https://www.onlineconverter.com/compress-mp3" target="_blank" className="underline font-bold">onlineconverter.com</a>.
+      <div className="p-4 bg-muted/50 border border-border rounded-sm">
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          Tip: Recommended music file size is under 1MB for faster loading. You can compress your MP3 files at <a href="https://www.onlineconverter.com/compress-mp3" target="_blank" className="underline font-medium text-foreground">onlineconverter.com</a>.
         </p>
       </div>
     </div>

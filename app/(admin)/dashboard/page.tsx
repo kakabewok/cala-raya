@@ -12,10 +12,10 @@ import {
   UserX,
   Calendar,
   Plus,
-  TrendingUp,
   Clock,
   Inbox,
   ArrowRight,
+  HelpCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { formatDate } from "@/utils/format-date";
@@ -90,15 +90,15 @@ const DashboardPage = () => {
   }, [invitations]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Welcome Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm p-6 md:p-8">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="pt-2">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100">
-              Dashboard Overview
+            <h1 className="text-2xl font-semibold text-foreground tracking-tight">
+              Dashboard
             </h1>
-            <p className="text-slate-600 dark:text-slate-400 mt-1">
+            <p className="text-muted-foreground text-sm mt-1">
               Welcome back, {session?.user?.name || "User"}
             </p>
           </div>
@@ -107,7 +107,7 @@ const DashboardPage = () => {
               isAdmin && (
                 <Link
                   href="/dashboard/my-invitations"
-                  className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-5 py-2.5 rounded-xl transition-all shadow-md shadow-purple-500/20 text-sm font-semibold"
+                  className="flex items-center gap-2 bg-foreground text-background px-4 py-2.5 rounded-md transition-colors hover:opacity-90 text-sm font-medium"
                 >
                   <Plus className="w-4 h-4" />
                   New Invitation
@@ -119,38 +119,27 @@ const DashboardPage = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
-          icon={<Mail className="w-5 h-5 text-blue-600" />}
-          label="Total Invitations"
+          icon={<Mail className="w-4 h-4" />}
+          label="Invitations"
           value={stats.totalInvitations}
-          trend="+2 New"
-          trendColor="text-blue-600"
-          bgColor="bg-blue-50 dark:bg-blue-900/20"
         />
         <StatCard
-          icon={<Users className="w-5 h-5 text-purple-600" />}
-          label="Total Guests"
+          icon={<Users className="w-4 h-4" />}
+          label="Guests"
           value={stats.totalGuests}
-          trend="+12 this week"
-          trendColor="text-purple-600"
-          bgColor="bg-purple-50 dark:bg-purple-900/20"
         />
         <StatCard
-          icon={<MessageSquare className="w-5 h-5 text-emerald-600" />}
+          icon={<MessageSquare className="w-4 h-4" />}
           label="RSVP Responses"
           value={stats.totalRsvps}
-          trend={`${Math.round(stats.responseRate)}% rate`}
-          trendColor="text-emerald-600"
-          bgColor="bg-emerald-50 dark:bg-emerald-900/20"
+          detail={`${Math.round(stats.responseRate)}% rate`}
         />
         <StatCard
-          icon={<Clock className="w-5 h-5 text-amber-600" />}
-          label="Active Directs"
+          icon={<Clock className="w-4 h-4" />}
+          label="Active"
           value={stats.totalInvitations}
-          trend="Currently live"
-          trendColor="text-amber-600"
-          bgColor="bg-amber-50 dark:bg-amber-900/20"
         />
       </div>
 
@@ -158,78 +147,68 @@ const DashboardPage = () => {
         {/* Main Content Area */}
         <div className="lg:col-span-2 space-y-6">
           {/* Quick Stats Detail */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <h3 className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-emerald-500" />
+          <div className="bg-card rounded-sm border border-border">
+            <div className="px-6 py-4 border-b border-border">
+              <h3 className="text-sm font-semibold text-foreground">
                 RSVP Breakdown
               </h3>
             </div>
-            <div className="p-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center">
-                  <UserCheck className="w-6 h-6 text-emerald-600" />
-                </div>
+            <div className="px-6 py-5 grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="flex items-center gap-3">
+                <UserCheck className="w-4 h-4 text-muted-foreground" />
                 <div>
-                  <p className="text-sm font-medium text-slate-500">Attending</p>
-                  <p className="text-xl font-bold text-slate-900 dark:text-slate-100">{stats.attending}</p>
+                  <p className="text-xs text-muted-foreground">Attending</p>
+                  <p className="text-lg font-semibold text-foreground">{stats.attending}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-900/20 flex items-center justify-center">
-                  <UserX className="w-6 h-6 text-rose-600" />
-                </div>
+              <div className="flex items-center gap-3">
+                <UserX className="w-4 h-4 text-muted-foreground" />
                 <div>
-                  <p className="text-sm font-medium text-slate-500">Not Attending</p>
-                  <p className="text-xl font-bold text-slate-900 dark:text-slate-100">{stats.notAttending}</p>
+                  <p className="text-xs text-muted-foreground">Not Attending</p>
+                  <p className="text-lg font-semibold text-foreground">{stats.notAttending}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
-                  <Users className="w-6 h-6 text-blue-600" />
-                </div>
+              <div className="flex items-center gap-3">
+                <Users className="w-4 h-4 text-muted-foreground" />
                 <div>
-                  <p className="text-sm font-medium text-slate-500">Total Guest Seats</p>
-                  <p className="text-xl font-bold text-slate-900 dark:text-slate-100">{stats.totalGuestsAttending}</p>
+                  <p className="text-xs text-muted-foreground">Total Guest Seats</p>
+                  <p className="text-lg font-semibold text-foreground">{stats.totalGuestsAttending}</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Recent Activity */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm">
-            <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <h3 className="font-bold text-slate-900 dark:text-slate-100">Recent RSVP Activity</h3>
-              <Link href="/dashboard/rsvp" className="text-xs font-semibold text-purple-600 hover:text-purple-700">
+          <div className="bg-card rounded-sm border border-border">
+            <div className="px-6 py-4 border-b border-border flex items-center justify-between">
+              <h3 className="text-sm font-semibold text-foreground">Recent RSVP Activity</h3>
+              <Link href="/dashboard/rsvp" className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors">
                 View All
               </Link>
             </div>
-            <div className="divide-y divide-slate-100 dark:divide-slate-800">
+            <div className="divide-y divide-border">
               {recentRsvps.length > 0 ? (
                 recentRsvps.map((rsvp) => (
-                  <div key={rsvp.id} className="p-4 md:p-6 flex items-start gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  <div key={rsvp.id} className="px-6 py-4 flex items-start gap-3 hover:bg-muted/50 transition-colors">
+                    <div className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${
                       rsvp.attendance_status 
-                        ? "bg-emerald-100 text-emerald-600" 
-                        : "bg-rose-100 text-rose-600"
-                    }`}>
-                      {rsvp.attendance_status ? <UserCheck className="w-5 h-5" /> : <UserX className="w-5 h-5" />}
-                    </div>
+                        ? "bg-emerald-500" 
+                        : "bg-red-400"
+                    }`} />
                     <div className="flex-1 min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-                        <p className="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-0.5">
+                        <p className="text-sm font-medium text-foreground truncate">
                           {rsvp.guest_name}
                         </p>
-                        <span className="text-[10px] font-medium text-slate-400 flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
+                        <span className="text-[11px] text-muted-foreground">
                           {formatDateTime(rsvp.created_at)}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-500 mb-2 truncate">
+                      <p className="text-xs text-muted-foreground mb-1.5 truncate">
                         {rsvp.coupleNames} · {rsvp.attendance_status ? `Bringing ${rsvp.total_guest} guests` : "Declined"}
                       </p>
                       {rsvp.message && (
-                        <p className="text-xs text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 p-2.5 rounded-lg border border-slate-100 dark:border-slate-700 italic line-clamp-2">
+                        <p className="text-xs text-muted-foreground bg-muted/70 px-3 py-2 rounded-sm border border-border italic line-clamp-2">
                           {rsvp.message}
                         </p>
                       )}
@@ -237,10 +216,10 @@ const DashboardPage = () => {
                   </div>
                 ))
               ) : (
-                <div className="p-10 text-center">
-                  <Inbox className="w-10 h-10 text-slate-200 mx-auto mb-3" />
-                  <p className="text-sm text-slate-400">No RSVP activities yet</p>
-                  <Link href="/dashboard/share-invitations" className="text-xs text-purple-600 font-semibold mt-2 inline-block">
+                <div className="px-6 py-12 text-center">
+                  <Inbox className="w-8 h-8 text-muted-foreground/30 mx-auto mb-3" />
+                  <p className="text-sm text-muted-foreground">No RSVP activities yet</p>
+                  <Link href="/dashboard/share-invitations" className="text-xs text-foreground font-medium mt-2 inline-block hover:underline">
                     Start sharing your invitations
                   </Link>
                 </div>
@@ -252,57 +231,55 @@ const DashboardPage = () => {
         {/* Sidebar area */}
         <div className="space-y-6">
           {/* Active Invitations */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-slate-100 dark:border-slate-800">
-              <h3 className="font-bold text-slate-900 dark:text-slate-100">Active Invitations</h3>
+          <div className="bg-card rounded-sm border border-border">
+            <div className="px-6 py-4 border-b border-border">
+              <h3 className="text-sm font-semibold text-foreground">Active Invitations</h3>
             </div>
-            <div className="p-2 space-y-1">
+            <div className="p-2 space-y-0.5">
               {activeInvitations.length > 0 ? (
                 activeInvitations.map((invitation: InvitationData) => (
                   <Link
                     key={invitation.id}
                     href={`/dashboard/my-invitations`}
-                    className="flex flex-col p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
+                    className="flex flex-col p-4 rounded-sm hover:bg-muted/50 transition-colors group"
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold text-purple-600 bg-purple-50 dark:bg-purple-900/20 px-2 py-1 rounded">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-xs font-medium text-muted-foreground bg-muted px-2 py-0.5 rounded-sm">
                         {invitation.themes?.name || "Premium"}
                       </span>
-                      <span className="text-xs text-slate-400 font-medium">
+                      <span className="text-xs text-muted-foreground">
                         {formatDate(invitation.event_date)}
                       </span>
                     </div>
-                    <p className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-1 group-hover:text-purple-600 transition-colors">
+                    <p className="text-sm font-medium text-foreground mb-1 group-hover:text-foreground/80 transition-colors">
                       {invitation.host_one_nickname} & {invitation.host_two_nickname}
                     </p>
-                    <div className="flex items-center justify-between mt-3">
+                    <div className="flex items-center justify-between mt-2">
                       <div className="flex gap-4">
-                        <div className="flex items-center gap-1 text-[10px] text-slate-500 font-medium">
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
                           <Users className="w-3 h-3" />
                           {(invitation as InvitationData).guests?.length || 0}
                         </div>
-                        <div className="flex items-center gap-1 text-[10px] text-slate-500 font-medium">
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
                           <MessageSquare className="w-3 h-3" />
                           {(invitation as InvitationData).rsvps?.length || 0}
                         </div>
                       </div>
-                      <div className="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ArrowRight className="w-3 h-3 text-slate-400" />
-                      </div>
+                      <ArrowRight className="w-3 h-3 text-muted-foreground/40 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </Link>
                 ))
               ) : (
                 <div className="p-8 text-center">
-                  <Calendar className="w-8 h-8 text-slate-200 mx-auto mb-2" />
-                  <p className="text-xs text-slate-400">No active invitations</p>
+                  <Calendar className="w-6 h-6 text-muted-foreground/30 mx-auto mb-2" />
+                  <p className="text-xs text-muted-foreground">No active invitations</p>
                 </div>
               )}
             </div>
-            <div className="p-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800">
+            <div className="px-6 py-3 border-t border-border">
               <Link
                 href="/dashboard/my-invitations"
-                className="flex items-center justify-center gap-2 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-purple-600 transition-colors"
+                className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Manage All Invitations
                 <ArrowRight className="w-3 h-3" />
@@ -311,14 +288,17 @@ const DashboardPage = () => {
           </div>
 
           {/* Quick Actions */}
-          <div className="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-2xl p-6 text-white shadow-lg shadow-purple-500/20">
-            <h4 className="font-bold mb-2">Need Help?</h4>
-            <p className="text-xs text-purple-100 mb-4 leading-relaxed">
+          <div className="bg-card rounded-sm border border-border p-6">
+            <div className="flex items-center gap-2 mb-2">
+              <HelpCircle className="w-4 h-4 text-muted-foreground" />
+              <h4 className="text-sm font-semibold text-foreground">Need Help?</h4>
+            </div>
+            <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
               Check out our tutorial on how to customize your invitations and manage guest lists effectively.
             </p>
             <button 
               onClick={() => setIsTutorialOpen(true)}
-              className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-xs font-bold py-2.5 rounded-xl transition-colors border border-white/20"
+              className="w-full bg-muted hover:bg-accent text-foreground text-xs font-medium py-2.5 rounded-sm transition-colors border border-border cursor-pointer"
             >
               View Tutorials
             </button>
@@ -333,27 +313,23 @@ const DashboardPage = () => {
 };
 
 // Sub-component for individual stat cards
-const StatCard = ({ icon, label, value, trend, trendColor, bgColor }: {
+const StatCard = ({ icon, label, value, detail }: {
   icon: React.ReactNode;
   label: string;
   value: number;
-  trend: string;
-  trendColor: string;
-  bgColor: string;
+  detail?: string;
 }) => {
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm p-4 md:p-6 transition-all hover:shadow-md">
-      <div className="flex items-start justify-between mb-4">
-        <div className={`w-10 h-10 rounded-xl ${bgColor} flex items-center justify-center`}>
-          {icon}
-        </div>
-        <div className={`text-[10px] font-bold px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 ${trendColor}`}>
-          {trend}
-        </div>
+    <div className="bg-card rounded-sm border border-border p-5">
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-muted-foreground">{icon}</span>
+        <p className="text-xs text-muted-foreground font-medium">{label}</p>
       </div>
-      <div>
-        <p className="text-sm font-medium text-slate-500 mb-1">{label}</p>
-        <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{value}</h3>
+      <div className="flex items-baseline gap-2">
+        <h3 className="text-2xl font-semibold text-foreground tabular-nums">{value}</h3>
+        {detail && (
+          <span className="text-xs text-muted-foreground">{detail}</span>
+        )}
       </div>
     </div>
   );

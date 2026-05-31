@@ -43,9 +43,9 @@ export default function NavLink({
       onClick={handleClick}
       aria-label={label}
       {...props}
-      className={`group relative flex items-center gap-3.5 rounded-lg py-2.5 px-4 text-sm font-medium text-slate-300 duration-200 ease-in-out hover:bg-slate-800 hover:text-white ${
+      className={`group relative flex items-center gap-3 rounded-lg py-3 px-4 text-sm font-medium text-muted-foreground duration-200 ease-in-out hover:bg-accent hover:text-foreground ${
         active
-          ? "bg-slate-800 text-white border-l-[3px] border-indigo-500 pl-[13px]"
+          ? "bg-accent text-foreground font-semibold"
           : ""
       } ${className}`}
     >
@@ -53,4 +53,3 @@ export default function NavLink({
     </Link>
   );
 }
-

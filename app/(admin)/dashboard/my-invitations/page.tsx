@@ -48,19 +48,19 @@ const InvitationPage = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 pt-2">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
+          <h1 className="text-2xl font-semibold text-foreground tracking-tight">
             My Invitations
           </h1>
-          <p className="text-slate-600 dark:text-slate-400 mt-1">
+          <p className="text-muted-foreground text-sm mt-1">
             Manage your digital invitations ({totalInvitations})
           </p>
         </div>
         {
            isAdmin && (
             <Link href="/dashboard/my-invitations/create">
-              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95">
+              <Button className="bg-foreground text-background hover:opacity-90 transition-opacity">
                 <Plus className="w-4 h-4 mr-2" />
                 Create New
               </Button>
@@ -71,18 +71,18 @@ const InvitationPage = () => {
 
       {/* Invitations Grid */}
       {!invitations || invitations.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-16 px-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
-          <div className="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4">
-            <FileText className="w-8 h-8 text-slate-400 dark:text-slate-500" />
+        <div className="flex flex-col items-center justify-center py-16 px-4 bg-card rounded-sm border border-border">
+          <div className="w-14 h-14 bg-muted rounded-full flex items-center justify-center mb-4">
+            <FileText className="w-6 h-6 text-muted-foreground" />
           </div>
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
+          <h3 className="text-base font-semibold text-foreground mb-1.5">
             No invitations yet
           </h3>
-          <p className="text-slate-600 dark:text-slate-400 text-center mb-6 max-w-md">
+          <p className="text-muted-foreground text-sm text-center mb-6 max-w-md">
             Create your first digital invitation to get started
           </p>
           <Link href="/dashboard/my-invitations/create">
-            <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">
+            <Button className="bg-foreground text-background hover:opacity-90">
               <Plus className="w-4 h-4 mr-2" />
               Create Your First Invitation
             </Button>
@@ -90,7 +90,7 @@ const InvitationPage = () => {
         </div>
       ) : (
         <div className="space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {invitations.map((invitation) => (
               <InvitationCard
                 key={invitation.id}
@@ -102,13 +102,13 @@ const InvitationPage = () => {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200 dark:border-slate-700 pt-6">
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Showing <span className="font-medium">{Math.min((currentPage - 1) * pageSize + 1, totalInvitations)}</span> to{" "}
-                <span className="font-medium">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border pt-6">
+              <p className="text-sm text-muted-foreground">
+                Showing <span className="font-medium text-foreground">{Math.min((currentPage - 1) * pageSize + 1, totalInvitations)}</span> to{" "}
+                <span className="font-medium text-foreground">
                   {Math.min(currentPage * pageSize, totalInvitations)}
                 </span>{" "}
-                of <span className="font-medium">{totalInvitations}</span> invitations
+                of <span className="font-medium text-foreground">{totalInvitations}</span> invitations
               </p>
               <div className="flex items-center gap-2">
                 <Button
@@ -116,14 +116,13 @@ const InvitationPage = () => {
                   size="sm"
                   onClick={() => handlePageChange(currentPage - 1)}
                   disabled={currentPage === 1}
-                  className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50"
                 >
                   <ChevronLeft className="w-4 h-4 mr-1" />
                   Previous
                 </Button>
                 
-                <div className="hidden sm:flex items-center px-4 h-9 rounded-md bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                  PAGE {currentPage} / {totalPages}
+                <div className="hidden sm:flex items-center px-4 h-9 rounded-md bg-muted text-xs font-medium text-foreground border border-border">
+                  {currentPage} / {totalPages}
                 </div>
 
                 <Button
@@ -131,7 +130,6 @@ const InvitationPage = () => {
                   size="sm"
                   onClick={() => handlePageChange(currentPage + 1)}
                   disabled={currentPage === totalPages}
-                  className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50"
                 >
                   Next
                   <ChevronRight className="w-4 h-4 ml-1" />
@@ -146,4 +144,3 @@ const InvitationPage = () => {
 };
 
 export default InvitationPage;
-

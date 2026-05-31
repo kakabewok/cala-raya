@@ -45,10 +45,10 @@ export default function RundownSection({ form }: SectionProps) {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-xl font-bold">Event Rundown</h2>
-          <p className="text-sm text-slate-500">
+          <h2 className="text-lg font-semibold text-foreground">Event Rundown</h2>
+          <p className="text-sm text-muted-foreground">
             Add segments for your wedding events (Ceremony, Reception, etc.)
-            <span className="ml-2 font-semibold text-slate-700 dark:text-slate-300">
+            <span className="ml-2 font-medium text-foreground">
               {rundownFields.length}/{SECTION_LIMITS.rundowns}
             </span>
           </p>
@@ -57,7 +57,7 @@ export default function RundownSection({ form }: SectionProps) {
           <button
             type="button"
             onClick={addRundown}
-            className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+            className="flex items-center gap-2 bg-foreground hover:bg-foreground/90 text-background px-4 py-2 rounded-sm font-medium transition-colors text-sm"
           >
             <Plus className="w-4 h-4" />
             <span>Add Event</span>
@@ -67,26 +67,25 @@ export default function RundownSection({ form }: SectionProps) {
 
       <div className="space-y-6">
         {rundownFields.map((field, idx) => (
-          <div key={field.id} className="relative bg-white dark:bg-slate-900 border rounded-xl shadow-sm overflow-hidden p-6 transition-all hover:shadow-md">
-            <div className="absolute top-0 left-0 w-1 h-full bg-indigo-500" />
+          <div key={field.id} className="relative bg-card border border-border rounded-sm p-6 transition-all shadow-sm">
             
             <div className="flex justify-between items-start mb-6">
               <div className="flex items-center gap-4">
-                <div className="bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-400 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="bg-muted text-muted-foreground w-8 h-8 rounded-sm flex items-center justify-center font-bold text-sm border border-border">
                   {idx + 1}
                 </div>
-                <h3 className="text-lg font-semibold capitalize">
+                <h3 className="text-lg font-semibold capitalize text-foreground">
                   {watch(`rundowns.${idx}.title`) || "Untitled Event"}
                 </h3>
               </div>
               
               <div className="flex items-center gap-2">
-                <div className="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
+                <div className="flex bg-muted rounded-sm p-1 border border-border">
                   <button
                     type="button"
                     disabled={idx === 0}
                     onClick={() => moveRundown(idx, idx - 1)}
-                    className="p-1 hover:bg-white dark:hover:bg-slate-700 rounded disabled:opacity-30 transition-all"
+                    className="p-1 hover:bg-background rounded disabled:opacity-30 transition-colors text-muted-foreground hover:text-foreground"
                   >
                     <GripVertical className="w-4 h-4 rotate-180" />
                   </button>
@@ -94,7 +93,7 @@ export default function RundownSection({ form }: SectionProps) {
                     type="button"
                     disabled={idx === rundownFields.length - 1}
                     onClick={() => moveRundown(idx, idx + 1)}
-                    className="p-1 hover:bg-white dark:hover:bg-slate-700 rounded disabled:opacity-30 transition-all"
+                    className="p-1 hover:bg-background rounded disabled:opacity-30 transition-colors text-muted-foreground hover:text-foreground"
                   >
                     <GripVertical className="w-4 h-4" />
                   </button>
@@ -102,7 +101,7 @@ export default function RundownSection({ form }: SectionProps) {
                 <button
                   type="button"
                   onClick={() => removeRundown(idx)}
-                  className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                  className="p-2 text-destructive hover:bg-destructive/10 rounded-sm transition-colors border border-transparent hover:border-destructive/20"
                 >
                   <Trash2 className="w-5 h-5" />
                 </button>
@@ -166,17 +165,17 @@ export default function RundownSection({ form }: SectionProps) {
               />
 
               <div className="md:col-span-2">
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                <label className="block text-sm font-semibold text-foreground mb-2">
                   Location Detail
                 </label>
                 <textarea
                   {...register(`rundowns.${idx}.location_detail`)}
                   placeholder="e.g. Jl. Raya Sudirman No. 123, Gedung Serbaguna Lt. 2"
                   rows={2}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all resize-none"
+                  className="flex min-h-[80px] w-full px-3 py-2 text-sm border border-border rounded-sm bg-background text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none placeholder:text-muted-foreground"
                 />
                 {errors.rundowns?.[idx]?.location_detail && (
-                  <p className="mt-1 text-xs text-red-500">{errors.rundowns?.[idx]?.location_detail?.message}</p>
+                  <p className="mt-1 text-xs text-destructive">{errors.rundowns?.[idx]?.location_detail?.message}</p>
                 )}
               </div>
             </div>
@@ -184,13 +183,13 @@ export default function RundownSection({ form }: SectionProps) {
         ))}
 
         {rundownFields.length === 0 && (
-          <div className="text-center py-12 border-2 border-dashed rounded-xl bg-slate-50 dark:bg-slate-900/50">
-            <Clock className="w-12 h-12 text-slate-300 mx-auto mb-4" />
-            <p className="text-slate-500 italic">No events added yet. Start by adding your first event segment.</p>
+          <div className="text-center py-12 border border-dashed border-border rounded-sm bg-muted/30">
+            <Clock className="w-12 h-12 text-foreground opacity-20 mx-auto mb-4" />
+            <p className="text-muted-foreground">No events added yet. Start by adding your first event segment.</p>
             <button
               type="button"
               onClick={addRundown}
-              className="mt-4 text-indigo-600 font-semibold hover:underline"
+              className="mt-4 text-foreground font-semibold hover:underline"
             >
               + Add First Event
             </button>
@@ -199,8 +198,8 @@ export default function RundownSection({ form }: SectionProps) {
       </div>
 
       {errors.rundowns && (
-        <p className="text-red-800 dark:text-red-400 text-sm mt-4 font-bold bg-red-50 dark:bg-red-900/20 p-4 rounded-xl border border-red-100 dark:border-red-900/30 flex items-center gap-2">
-          <AlertTriangle className="w-5 h-5 text-red-600" /> 
+        <p className="text-destructive text-sm mt-4 font-bold bg-destructive/10 p-4 rounded-sm border border-destructive/20 flex items-center gap-2">
+          <AlertTriangle className="w-5 h-5 text-destructive" /> 
           {errors.rundowns.message || "Please fix errors in the rundown section"}
         </p>
       )}

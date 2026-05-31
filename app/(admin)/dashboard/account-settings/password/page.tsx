@@ -81,45 +81,45 @@ export default function PasswordPage() {
 
   return (
     <div className="py-6 px-0 md:p-6 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <Card className="border-slate-200 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900 border-none shadow-lg shadow-black/5">
-        <CardHeader className="border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/20 p-5 md:p-6">
+      <Card className="border-border overflow-hidden bg-card rounded-sm">
+        <CardHeader className="border-b border-border bg-muted/30 p-5 md:p-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-              <ShieldCheck className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+              <ShieldCheck className="w-5 h-5 text-muted-foreground" />
             </div>
             <div>
-              <CardTitle className="text-xl font-bold text-slate-900 dark:text-slate-100">
+              <CardTitle className="text-lg font-semibold text-foreground">
                 Security Settings
               </CardTitle>
-              <CardDescription className="text-slate-500 text-sm mt-1">
+              <CardDescription className="text-muted-foreground text-sm mt-0.5">
                 Ensure your account is using a long, random password to stay secure
               </CardDescription>
             </div>
           </div>
         </CardHeader>
-        <CardContent className="p-4 md:p-8">
+        <CardContent className="p-5 md:p-8">
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="space-y-6">
               {/* Current Password */}
               <div className="space-y-3">
-                <Label htmlFor="current" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
+                <Label htmlFor="current" className="text-sm font-medium text-foreground ml-0.5">
                   Current Password
                 </Label>
                 <div className="relative group">
                   <Input
                     id="current"
                     type={showCurrent ? "text" : "password"}
-                    className="pl-11 pr-11 h-12 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all rounded-xl"
+                    className="pl-11 pr-11"
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
                     required
                     placeholder="Enter current password"
                   />
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-blue-500 transition-colors" />
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 group-focus-within:text-foreground transition-colors" />
                   <button
                     type="button"
                     onClick={() => setShowCurrent(!showCurrent)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 hover:text-foreground p-1.5 transition-colors"
                   >
                     {showCurrent ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
@@ -127,27 +127,27 @@ export default function PasswordPage() {
                 <InputError message={errorMessages.current_password} />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* New Password */}
                 <div className="space-y-3">
-                  <Label htmlFor="new" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
+                  <Label htmlFor="new" className="text-sm font-medium text-foreground ml-0.5">
                     New Password
                   </Label>
                   <div className="relative group">
                     <Input
                       id="new"
                       type={showNew ? "text" : "password"}
-                      className="pl-11 pr-11 h-12 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all rounded-xl"
+                      className="pl-11 pr-11"
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
                       required
                       placeholder="Minimum 8 characters"
                     />
-                    <ShieldCheck className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-blue-500 transition-colors" />
+                    <ShieldCheck className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 group-focus-within:text-foreground transition-colors" />
                     <button
                       type="button"
                       onClick={() => setShowNew(!showNew)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 hover:text-foreground p-1.5 transition-colors"
                     >
                       {showNew ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -157,24 +157,24 @@ export default function PasswordPage() {
 
                 {/* Confirm Password */}
                 <div className="space-y-3">
-                  <Label htmlFor="confirm" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
+                  <Label htmlFor="confirm" className="text-sm font-medium text-foreground ml-0.5">
                     Confirm New Password
                   </Label>
                   <div className="relative group">
                     <Input
                       id="confirm"
                       type={showConfirm ? "text" : "password"}
-                      className="pl-11 pr-11 h-12 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all rounded-xl"
+                      className="pl-11 pr-11"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       required
                       placeholder="Repeat new password"
                     />
-                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-blue-500 transition-colors" />
+                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 group-focus-within:text-foreground transition-colors" />
                     <button
                       type="button"
                       onClick={() => setShowConfirm(!showConfirm)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 hover:text-foreground p-1.5 transition-colors"
                     >
                       {showConfirm ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -184,12 +184,12 @@ export default function PasswordPage() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-slate-100 dark:border-slate-800">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-border">
               <div className="flex-1 min-h-[24px]">
                 {message && (
-                  <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-semibold animate-in fade-in slide-in-from-left-2 ${
+                  <div className={`flex items-center gap-2 px-3 py-1.5 rounded-sm text-sm font-medium animate-in fade-in slide-in-from-left-2 ${
                     message.toLowerCase().includes("failed") || message.toLowerCase().includes("error")
-                      ? "text-rose-600 bg-rose-50 dark:bg-rose-900/20" 
+                      ? "text-destructive bg-destructive/10" 
                       : "text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20"
                   }`}>
                     {message}
@@ -199,12 +199,12 @@ export default function PasswordPage() {
               <Button
                 type="submit"
                 disabled={processing}
-                className="h-12 px-8 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-500/25 active:scale-[0.98] disabled:opacity-50 min-w-[180px]"
+                className="bg-foreground text-background hover:bg-foreground/90 min-w-[160px]"
               >
                 {processing ? (
                   <span className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Updating Security...
+                    Updating...
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">

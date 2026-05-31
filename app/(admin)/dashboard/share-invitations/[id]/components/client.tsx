@@ -204,15 +204,15 @@ export const GuestClient: React.FC<GuestClientProps> = ({
     <GuestRefetchProvider value={{ refetchGuests }}>
       <div className="space-y-6">
         {/* Header Section */}
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm overflow-hidden">
+        <div className="bg-card rounded-sm border border-border overflow-hidden">
           <div className="p-6 md:p-8">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               {/* Invitation Info */}
               <div className="space-y-1">
-                <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                <h1 className="text-2xl font-semibold text-foreground tracking-tight">
                   {bridesAndGrooms}
                 </h1>
-                <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="w-4 h-4" />
                   <span>
                     {selectedInvitation?.event_date
@@ -221,7 +221,7 @@ export const GuestClient: React.FC<GuestClientProps> = ({
                   </span>
                 </div>
                 {selectedInvitation?.additional_info && (
-                  <p className="text-sm text-slate-500 dark:text-slate-500 mt-2">
+                  <p className="text-sm text-muted-foreground mt-2">
                     {selectedInvitation.additional_info}
                   </p>
                 )}
@@ -238,19 +238,19 @@ export const GuestClient: React.FC<GuestClientProps> = ({
         </div>
 
         {/* Guest Management Section */}
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-slate-200 dark:border-slate-800">
+        <div className="bg-card rounded-sm border border-border overflow-hidden">
+          <div className="p-6 border-b border-border">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               {/* Guest Count */}
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
-                  <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <div className="p-2 bg-muted rounded-md border border-border">
+                  <Users className="w-5 h-5 text-muted-foreground" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+                  <h2 className="text-lg font-semibold text-foreground">
                     Guest List
                   </h2>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <p className="text-sm text-muted-foreground">
                     {totalCount} {totalCount === 1 ? "guest" : "guests"} registered
                   </p>
                 </div>
@@ -286,7 +286,7 @@ export const GuestClient: React.FC<GuestClientProps> = ({
                   <Button
                     onClick={() => setEditMessageModalOpen(true)}
                     size="sm"
-                    className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white"
+                    className="flex items-center gap-2 bg-foreground text-background hover:bg-foreground/90"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Message Template</span>

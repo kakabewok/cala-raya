@@ -20,7 +20,10 @@ export const columns: ColumnDef<RsvpColumn>[] = [
         </Button>
       );
     },
-    cell: ({ row }) => row.index + 1,
+    cell: ({ row, table }) => {
+      const { pageIndex, pageSize } = table.getState().pagination;
+      return pageIndex * pageSize + row.index + 1;
+    },
   },
   {
     accessorKey: "guest_name",

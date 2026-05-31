@@ -8,8 +8,8 @@ export default function HeadingSmall({
   className?: string;
 }) {
   return (
-    <header className={`${className}`}>
-      <h3 className="mb-0.5 text-base font-medium">{title}</h3>
+    <header className={`${className} space-y-1`}>
+      <h3 className="text-base font-semibold text-foreground tracking-tight">{title}</h3>
       {description && (
         <p className="text-muted-foreground text-sm">{description}</p>
       )}

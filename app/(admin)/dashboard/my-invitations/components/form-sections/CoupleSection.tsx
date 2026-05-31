@@ -16,9 +16,8 @@ export default function CoupleSection({ form }: SectionProps) {
     <div className="space-y-8">
       <div className="grid md:grid-cols-2 gap-6">
         {/* Host One / Groom */}
-        <div className="space-y-4 p-5 border rounded-xl bg-slate-50 dark:bg-slate-900/50">
-          <h3 className="text-lg font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2 italic">
-            <div className="w-2 h-2 rounded-full bg-slate-400" />
+        <div className="space-y-4 p-5 border border-border rounded-sm bg-card">
+          <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
             Grooms Information
           </h3>
           <div className="grid gap-4">
@@ -51,9 +50,8 @@ export default function CoupleSection({ form }: SectionProps) {
         </div>
 
         {/* Host Two / Bride */}
-        <div className="space-y-4 p-5 border rounded-xl bg-slate-50 dark:bg-slate-900/50">
-          <h3 className="text-lg font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2 italic">
-            <div className="w-2 h-2 rounded-full bg-slate-400" />
+        <div className="space-y-4 p-5 border border-border rounded-sm bg-card">
+          <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
             Brides Information
           </h3>
           <div className="grid gap-4">

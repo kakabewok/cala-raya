@@ -104,15 +104,15 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
   return (
     <div className="space-y-6">
       {/* Header Section */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm overflow-hidden">
+      <div className="bg-card rounded-sm border border-border overflow-hidden">
         <div className="p-6 md:p-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             {/* Title & Info */}
             <div className="space-y-1">
-              <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
+              <h1 className="text-2xl font-semibold text-foreground tracking-tight">
                 RSVP & Guest Messages
               </h1>
-              <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Calendar className="w-4 h-4" />
                 <span>{bridesAndGrooms}</span>
                 {selectedInvitation?.event_date && (
@@ -134,64 +134,64 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
 
           {/* Statistics Cards */}
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="p-4 bg-muted/30 rounded-sm border border-border">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
-                  <MessageSquare className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <div className="p-2 bg-muted rounded-md border border-border">
+                  <MessageSquare className="w-4 h-4 text-muted-foreground" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                  <p className="text-xl font-bold text-foreground">
                     {stats.total}
                   </p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                  <p className="text-xs text-muted-foreground">
                     Total Responses
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 bg-green-50 dark:bg-green-900/10 rounded-xl border border-green-200 dark:border-green-900/30">
+            <div className="p-4 bg-muted/30 rounded-sm border border-border">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
-                  <UserCheck className="w-5 h-5 text-green-600 dark:text-green-500" />
+                <div className="p-2 bg-muted rounded-md border border-border">
+                  <UserCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-500" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-green-900 dark:text-green-100">
+                  <p className="text-xl font-bold text-foreground">
                     {stats.attending}
                   </p>
-                  <p className="text-xs text-green-700 dark:text-green-400">
+                  <p className="text-xs text-muted-foreground">
                     Attending
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 bg-red-50 dark:bg-red-900/10 rounded-xl border border-red-200 dark:border-red-900/30">
+            <div className="p-4 bg-muted/30 rounded-sm border border-border">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
-                  <UserX className="w-5 h-5 text-red-600 dark:text-red-500" />
+                <div className="p-2 bg-muted rounded-md border border-border">
+                  <UserX className="w-4 h-4 text-red-500" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-red-900 dark:text-red-100">
+                  <p className="text-xl font-bold text-foreground">
                     {stats.notAttending}
                   </p>
-                  <p className="text-xs text-red-700 dark:text-red-400">
+                  <p className="text-xs text-muted-foreground">
                     Not Attending
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 dark:bg-blue-900/10 rounded-xl border border-blue-200 dark:border-blue-900/30">
+            <div className="p-4 bg-muted/30 rounded-sm border border-border">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                  <Users className="w-5 h-5 text-blue-600 dark:text-blue-500" />
+                <div className="p-2 bg-muted rounded-md border border-border">
+                  <Users className="w-4 h-4 text-blue-500" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">
+                  <p className="text-xl font-bold text-foreground">
                     {stats.totalGuests}
                   </p>
-                  <p className="text-xs text-blue-700 dark:text-blue-400">
+                  <p className="text-xs text-muted-foreground">
                     Total Guests
                   </p>
                 </div>
@@ -202,10 +202,10 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
       </div>
 
       {/* RSVP List */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border shadow-sm overflow-hidden">
+      <div className="bg-card rounded-sm border border-border overflow-hidden">
         <div className="p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-semibold text-foreground">
               Guest Responses ({totalCount})
             </h2>
           </div>
@@ -213,13 +213,13 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
           {rsvpData.length === 0 ? (
             // Empty State
             <div className="py-16 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full mb-4">
-                <Inbox className="w-8 h-8 text-slate-400" />
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-muted rounded-full mb-4">
+                <Inbox className="w-6 h-6 text-muted-foreground" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
+              <h3 className="text-base font-semibold text-foreground mb-1.5">
                 No guest responses yet
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 max-w-sm mx-auto">
+              <p className="text-sm text-muted-foreground max-w-sm mx-auto">
                 Guest responses will appear here once they RSVP to your invitation
               </p>
             </div>
@@ -230,36 +230,36 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
                 {rsvpData.map((rsvp) => (
                   <div
                     key={rsvp.id}
-                    className="p-5 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-all"
+                    className="p-5 border border-border rounded-sm hover:bg-muted/20 transition-colors"
                   >
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div className="flex-1 space-y-3">
                         {/* Guest Name & Status */}
                         <div className="flex flex-wrap items-center gap-3">
-                          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+                          <h3 className="text-base font-semibold text-foreground">
                             {rsvp.guest_name}
                           </h3>
                           <span
-                            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
+                            className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-sm text-xs font-medium border ${
                               rsvp.total_guest > 0
-                                ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-900/50"
-                                : "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-900/50"
+                                ? "bg-muted text-foreground border-border"
+                                : "bg-muted text-foreground border-border"
                             }`}
                           >
                             {rsvp.total_guest > 0 ? (
                               <>
-                                <CheckCircle className="w-3 h-3" />
+                                <CheckCircle className="w-3 h-3 text-emerald-500" />
                                 Hadir
                               </>
                             ) : (
                               <>
-                                <XCircle className="w-3 h-3" />
+                                <XCircle className="w-3 h-3 text-red-500" />
                                 Tidak Hadir
                               </>
                             )}
                           </span>
                           {rsvp.total_guest > 0 && (
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-xs font-medium">
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-muted text-muted-foreground rounded-sm text-xs font-medium border border-border">
                               <Users className="w-3 h-3" />
                               {rsvp.total_guest}{" "}
                               {rsvp.total_guest === 1 ? "guest" : "guests"}
@@ -269,9 +269,9 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
 
                         {/* Message */}
                         {rsvp.message && (
-                          <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700">
-                            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                              {rsvp.message}
+                          <div className="p-3.5 bg-muted/50 rounded-sm border border-border">
+                            <p className="text-sm text-foreground leading-relaxed italic">
+                              &quot;{rsvp.message}&quot;
                             </p>
                           </div>
                         )}
@@ -279,7 +279,7 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
 
                       {/* Timestamp */}
                       {rsvp.created_at && (
-                        <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-500">
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
                           <Clock className="w-3.5 h-3.5" />
                           <span>
                             {formatDateTime(rsvp.created_at)}
@@ -293,12 +293,12 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
 
               {/* Pagination Controls */}
               {totalPages > 1 && (
-                <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-slate-700">
+                <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-border">
                   {/* Previous Button */}
                   <button
                     onClick={() => onPageChange(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground bg-background border border-border rounded-sm hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     <span className="hidden sm:inline">Previous</span>
@@ -311,12 +311,12 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
                         key={index}
                         onClick={() => typeof page === "number" && onPageChange(page)}
                         disabled={page === "..."}
-                        className={`min-w-[40px] h-10 px-3 text-sm font-medium rounded-lg transition-colors ${
+                        className={`min-w-[40px] h-10 px-3 text-sm font-medium rounded-sm transition-colors ${
                           page === currentPage
-                            ? "bg-indigo-600 text-white dark:bg-indigo-500"
+                            ? "bg-foreground text-background"
                             : page === "..."
-                            ? "text-slate-400 cursor-default"
-                            : "text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700"
+                            ? "text-muted-foreground cursor-default"
+                            : "text-foreground bg-background border border-border hover:bg-muted"
                         }`}
                       >
                         {page}
@@ -328,7 +328,7 @@ export const RsvpClient: React.FC<RsvpClientProps> = ({
                   <button
                     onClick={() => onPageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground bg-background border border-border rounded-sm hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     <span className="hidden sm:inline">Next</span>
                     <ChevronRight className="w-4 h-4" />

@@ -6,38 +6,34 @@ import { usePathname } from "next/navigation";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import NavLink from "./NavLink";
 import {
-  CheckCircle,
-  LayoutDashboard,
-  Mail,
-  Share2,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 
-// Menu items configuration
+// Menu items configuration — using emoji icons for a friendlier feel
 const menuItems = [
   {
     url: "/dashboard",
     label: "Dashboard",
-    icon: LayoutDashboard,
+    emoji: "📊",
     matchExact: true,
   },
   {
     url: "/dashboard/my-invitations",
     label: "My Invitations",
-    icon: Mail,
+    emoji: "💌",
     matchExact: false,
   },
   {
     url: "/dashboard/share-invitations",
     label: "Share Invitations",
-    icon: Share2,
+    emoji: "📤",
     matchExact: false,
   },
   {
     url: "/dashboard/rsvp",
     label: "RSVP",
-    icon: CheckCircle,
+    emoji: "✅",
     matchExact: false,
   },
 ];
@@ -131,13 +127,13 @@ const Sidebar = () => {
         }}
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       <aside
         ref={sidebar}
         onClick={(e) => e.stopPropagation()}
-        className={`absolute left-0 top-0 z-50 flex h-screen flex-col overflow-y-hidden bg-slate-900 border-r border-slate-800 transition-all duration-300 ease-in-out lg:static lg:translate-x-0 ${
+        className={`absolute left-0 top-0 z-50 flex h-screen flex-col overflow-y-hidden bg-sidebar border-r border-sidebar-border transition-all duration-300 ease-in-out lg:static lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } ${isNarrow ? "w-20" : "w-72"}`}
       >
@@ -145,25 +141,25 @@ const Sidebar = () => {
         <div className={`flex items-center justify-between gap-2 px-6 py-6 lg:py-7 ${isNarrow ? "justify-center px-3" : ""}`}>
           <div className={`transition-all duration-300 overflow-hidden ${isNarrow ? "opacity-0 w-0" : "opacity-100"}`}>
             <Link href="/dashboard" className="flex items-center gap-1">
-              <h1 className="text-xl font-black text-white italic tracking-tighter whitespace-nowrap">
+              <h1 className="text-xl font-black text-foreground italic tracking-tighter whitespace-nowrap">
                 CALA RAYA
-                <span className="text-indigo-500 not-italic ml-1">.</span>
+                <span className="text-muted-foreground not-italic ml-1">.</span>
               </h1>
             </Link>
           </div>
 
           <button
             onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors flex-shrink-0"
+            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-md bg-muted text-muted-foreground hover:text-foreground transition-colors flex-shrink-0"
           >
-            {sidebarCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+            {sidebarCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
           </button>
 
           <button
             ref={trigger}
             onClick={() => setSidebarOpen(!sidebarOpen)}
             aria-label="Close sidebar"
-            className="block lg:hidden text-slate-300 hover:text-white"
+            className="block lg:hidden text-muted-foreground hover:text-foreground"
           >
             <ChevronLeft className="rotate-180" />
           </button>
@@ -172,23 +168,22 @@ const Sidebar = () => {
 
         <div className="flex flex-col overflow-hidden duration-300 ease-linear">
           {/* <!-- Sidebar Menu --> */}
-          <nav className={`py-4 mt-3 lg:mt-6 ${isNarrow ? "px-2" : "px-4 lg:px-6"}`}>
+          <nav className={`py-4 mt-2 lg:mt-4 ${isNarrow ? "px-2" : "px-4 lg:px-5"}`}>
             <div>
               {/* Section heading */}
               {showLabels ? (
-                <h3 className="mb-4 ml-4 text-[11px] font-bold text-slate-500 uppercase tracking-[0.15em]">
+                <h3 className="mb-5 ml-4 text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.15em]">
                   Management
                 </h3>
               ) : (
-                <div className="mb-4 flex justify-center">
-                  <div className="w-6 h-px bg-slate-700" />
+                <div className="mb-5 flex justify-center">
+                  <div className="w-6 h-px bg-border" />
                 </div>
               )}
 
-              <ul className="flex flex-col gap-1.5">
+              <ul className="flex flex-col gap-1">
                 {menuItems.map((item) => {
                   const active = isActive(item);
-                  const Icon = item.icon;
 
                   return (
                     <li key={item.url} className="relative group/tooltip">
@@ -198,10 +193,9 @@ const Sidebar = () => {
                         label={item.label}
                         className={isNarrow ? "justify-center px-2" : ""}
                       >
-                        <Icon
-                          size={20}
-                          className={`flex-shrink-0 ${active ? "text-indigo-500" : "text-slate-400 group-hover:text-white"}`}
-                        />
+                        <span className="text-lg flex-shrink-0 leading-none" role="img" aria-label={item.label}>
+                          {item.emoji}
+                        </span>
                         {showLabels && (
                           <span className="truncate">{item.label}</span>
                         )}
@@ -209,9 +203,9 @@ const Sidebar = () => {
 
                       {/* Tooltip — only for desktop collapsed state */}
                       {isNarrow && (
-                        <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-3 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-md shadow-lg opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 whitespace-nowrap z-[60] pointer-events-none">
+                        <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-3 py-1.5 bg-popover text-popover-foreground text-xs font-medium rounded-md shadow-lg border border-border opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 whitespace-nowrap z-[60] pointer-events-none">
                           {item.label}
-                          <div className="absolute right-full top-1/2 -translate-y-1/2 border-[5px] border-transparent border-r-slate-800" />
+                          <div className="absolute right-full top-1/2 -translate-y-1/2 border-[5px] border-transparent border-r-popover" />
                         </div>
                       )}
                     </li>
@@ -228,4 +222,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-

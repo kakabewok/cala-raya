@@ -87,49 +87,49 @@ export default function SettingsSection({ form, userRole }: SectionProps) {
       {/* ── ADMIN: User Assignment Section ── */}
       {isAdmin && (
         <div className="space-y-6">
-          <div className="flex justify-between items-center border-b pb-4">
+          <div className="flex justify-between items-center border-b border-border pb-4">
             <div className="flex items-center gap-3">
-              <Users className="w-6 h-6 text-emerald-600" />
-              <h3 className="text-xl font-bold">Assign to User</h3>
+              <Users className="w-5 h-5 text-foreground/75" />
+              <h3 className="text-lg font-semibold text-foreground">Assign to User</h3>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-xs font-bold">
+            <div className="flex items-center gap-1.5 px-2 py-0.5 border border-border bg-muted text-muted-foreground rounded-sm text-[10px] font-bold uppercase tracking-wider">
               <ShieldCheck className="w-3.5 h-3.5" />
               ADMIN ONLY
             </div>
           </div>
 
-          <div className="bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-200 dark:border-emerald-900/30 p-4 rounded-xl flex gap-4 items-start animate-in fade-in duration-500">
-            <Info className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-            <div className="text-sm text-emerald-800 dark:text-emerald-400">
-              <p className="font-bold">User Assignment</p>
+          <div className="bg-muted/50 border border-border p-4 rounded-sm flex gap-3 items-start">
+            <Info className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
+            <div className="text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground">User Assignment</p>
               <p>Select which user will own this invitation. If not selected, the invitation will be assigned to you.</p>
             </div>
           </div>
 
-          <div className="space-y-2 max-w-md animate-in slide-in-from-top-2 duration-500">
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-200">
+          <div className="space-y-2 max-w-md">
+            <label className="block text-sm font-semibold text-foreground">
               Select User
             </label>
             <Select 
               onValueChange={handleUserChange} 
               value={selectedUserId ? String(selectedUserId) : undefined}
             >
-              <SelectTrigger className="w-full h-12 bg-white dark:bg-slate-950 border-2 focus:ring-emerald-500">
+              <SelectTrigger className="w-full h-12 bg-card border border-border rounded-sm focus:ring-1 focus:ring-foreground">
                 <SelectValue placeholder={loadingUsers ? "Loading users..." : "Select a user (optional)"} />
               </SelectTrigger>
               <SelectContent>
                 {users.map((user) => (
-                  <SelectItem key={user.id} value={String(user.id)}>
+                  <SelectItem key={user.id} value={String(user.id)} className="cursor-pointer">
                     <div className="flex items-center gap-3">
-                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                      <div className="w-7 h-7 rounded-sm bg-muted border border-border flex items-center justify-center text-foreground text-xs font-semibold shrink-0">
                         {(user.name || "?")[0].toUpperCase()}
                       </div>
                       <div className="flex flex-col">
-                        <span className="font-medium">{user.name || "Unnamed"}</span>
-                        <span className="text-xs text-slate-500">{user.email}</span>
+                        <span className="font-medium text-sm">{user.name || "Unnamed"}</span>
+                        <span className="text-xs text-muted-foreground">{user.email}</span>
                       </div>
                       {user.role === "ADMIN" && (
-                        <span className="ml-auto bg-indigo-600 text-[10px] text-white px-1.5 py-0.5 rounded font-black">
+                        <span className="ml-auto bg-foreground text-background text-[10px] px-1.5 py-0.5 rounded-sm font-semibold">
                           ADMIN
                         </span>
                       )}
@@ -138,7 +138,7 @@ export default function SettingsSection({ form, userRole }: SectionProps) {
                 ))}
               </SelectContent>
             </Select>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted-foreground">
               Leave empty to assign the invitation to yourself.
             </p>
           </div>
@@ -146,9 +146,9 @@ export default function SettingsSection({ form, userRole }: SectionProps) {
       )}
 
       <div className="space-y-6">
-        <div className="flex items-center gap-3 border-b pb-4">
-          <Settings className="w-6 h-6 text-slate-600" />
-          <h3 className="text-xl font-bold">General Settings</h3>
+        <div className="flex items-center gap-3 border-b border-border pb-4">
+          <Settings className="w-5 h-5 text-foreground/75" />
+          <h3 className="text-lg font-semibold text-foreground">General Settings</h3>
         </div>
 
         <div className="max-w-md">
@@ -163,18 +163,18 @@ export default function SettingsSection({ form, userRole }: SectionProps) {
       </div>
 
       <div className="space-y-6 pt-6">
-        <div className="flex justify-between items-center border-b pb-4">
+        <div className="flex justify-between items-center border-b border-border pb-4">
           <div className="flex items-center gap-3">
-            <Layout className="w-6 h-6 text-indigo-600" />
-            <h3 className="text-xl font-bold">Invitation Theme</h3>
+            <Layout className="w-5 h-5 text-foreground/75" />
+            <h3 className="text-lg font-semibold text-foreground">Invitation Theme</h3>
           </div>
           {isAdmin ? (
-            <div className="flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-bold">
+            <div className="flex items-center gap-1.5 px-2 py-0.5 border border-border bg-muted text-muted-foreground rounded-sm text-[10px] font-bold uppercase tracking-wider">
               <ShieldCheck className="w-3.5 h-3.5" />
               ADMIN ACCESS
             </div>
           ) : (
-            <div className="flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full text-xs font-bold border">
+            <div className="flex items-center gap-1.5 px-2 py-0.5 border border-border bg-muted text-muted-foreground rounded-sm text-[10px] font-bold uppercase tracking-wider">
               <Lock className="w-3.5 h-3.5" />
               READ ONLY
             </div>
@@ -182,54 +182,53 @@ export default function SettingsSection({ form, userRole }: SectionProps) {
         </div>
 
         {!isAdmin ? (
-          <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/30 p-4 rounded-xl flex gap-4 items-start animate-in fade-in duration-500">
-            <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-            <div className="text-sm text-amber-800 dark:text-amber-400">
-              <p className="font-bold">Theme is locked</p>
+          <div className="bg-muted/50 border border-border p-4 rounded-sm flex gap-3 items-start">
+            <Info className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
+            <div className="text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground">Theme is locked</p>
               <p>Your invitation theme is assigned based on your purchase. To change the theme, please contact support or upgrade your package.</p>
             </div>
           </div>
         ) : (
-          <div className="space-y-4 max-w-md animate-in slide-in-from-top-2 duration-500">
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-200">
+          <div className="space-y-4 max-w-md">
+            <label className="block text-sm font-semibold text-foreground">
               Change Active Theme
             </label>
             <Select onValueChange={handleThemeChange} value={currentTheme}>
-              <SelectTrigger className="w-full h-12 bg-white dark:bg-slate-950 border-2 focus:ring-indigo-500">
+              <SelectTrigger className="w-full h-12 bg-card border border-border rounded-sm focus:ring-1 focus:ring-foreground">
                 <SelectValue placeholder={loading ? "Loading themes..." : "Select a theme"} />
               </SelectTrigger>
               <SelectContent>
                 {themes.map((theme) => (
-                  <SelectItem key={theme.id} value={theme.name}>
+                  <SelectItem key={theme.id} value={theme.name} className="cursor-pointer">
                     <div className="flex items-center gap-2">
-                       <span className="font-medium capitalize">{theme.name}</span>
-                       {theme.name === 'netflix' && <span className="bg-red-600 text-[10px] text-white px-1.5 py-0.5 rounded font-black">HOT</span>}
+                       <span className="font-medium capitalize text-sm">{theme.name}</span>
+                       {theme.name === 'netflix' && <span className="bg-red-600 text-[10px] text-white px-1.5 py-0.5 rounded-sm font-semibold">HOT</span>}
                     </div>
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted-foreground">
               Note: Changing themes may affect how your photos and rundown are displayed.
             </p>
           </div>
         )}
 
         <div className="mt-8">
-          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Preview Selected Theme</p>
-          <div className="relative group max-w-[280px] rounded-3xl overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl ring-1 ring-slate-200 dark:ring-slate-700">
-            <div className="aspect-[9/16] relative bg-slate-100">
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Preview Selected Theme</p>
+          <div className="relative group max-w-[260px] rounded-sm overflow-hidden border border-border shadow-sm">
+            <div className="aspect-[9/16] relative bg-muted">
               {/* Fallback to a placeholder if preview not found */}
               <Image
                 src={themePreviews[currentTheme] || "/placeholder.png"}
                 alt={`Theme: ${currentTheme}`}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-75 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-                <span className="text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase mb-1">Active Template</span>
-                <h4 className="text-3xl font-black text-white capitalize tracking-tight">{currentTheme}</h4>
-                <div className="w-10 h-1 bg-indigo-500 mt-3 rounded-full" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-5">
+                <span className="text-[9px] font-medium tracking-wider text-white/60 uppercase mb-1">Active Template</span>
+                <h4 className="text-2xl font-bold text-white capitalize tracking-tight">{currentTheme}</h4>
               </div>
             </div>
           </div>

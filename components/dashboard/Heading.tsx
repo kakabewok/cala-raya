@@ -10,17 +10,17 @@ export default function Heading({
   className?: string;
 }) {
   return (
-    <div className="mb-5 md:mb-8 space-y-0.5">
-      <h2 className={`${className} text-2xl font-semibold tracking-tight`}>
+    <div className="mb-6 space-y-1">
+      <h2 className={`${className} text-2xl font-semibold tracking-tight text-foreground`}>
         {title}
       </h2>
       {description && (
-        <p className="text-muted-foreground text-xs md:text-sm">
+        <p className="text-muted-foreground text-sm">
           {description}
         </p>
       )}
       {additionalInfo && (
-        <p className="text-muted-foreground text-xs md:text-sm">
+        <p className="text-muted-foreground text-sm">
           {additionalInfo}
         </p>
       )}
