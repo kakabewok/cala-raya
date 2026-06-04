@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useInvitation } from "@/hooks/use-invitation";
 import Image from "next/image";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 const RSVP = () => {
   const { invitationData, guest } = useInvitation();
@@ -166,7 +167,7 @@ const RSVP = () => {
       {/* RSVP message */}
       <section className="relative w-full py-10 px-6 bg-[#f9f4ec] text-neutral-700 overflow-x-hidden">
         <Image
-          src={findImage(invitationData, "initial")}
+          src={optimizeCloudinaryUrl(findImage(invitationData, "initial"))}
           width={140}
           height={140}
           alt="Kiri"
@@ -174,7 +175,7 @@ const RSVP = () => {
         />
 
         <Image
-          src={findImage(invitationData, "initial")}
+          src={optimizeCloudinaryUrl(findImage(invitationData, "initial"))}
           width={125}
           height={125}
           alt="Kanan"

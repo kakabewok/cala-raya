@@ -5,6 +5,7 @@ import { useInvitation } from "@/hooks/use-invitation";
 import { commuters, monthGlade } from "@/fonts/fonts";
 import SwipeHandIcon from "./SwipeHandIcon";
 import VerticalDate from "./VerticalDate";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 interface GalleryImage {
   id: number;
@@ -110,9 +111,8 @@ const VerticalGallery = () => {
     <div className="relative w-full h-screen bg-[#f8f5ef] overflow-hidden">
       {/* Door Effect Top */}
       <div
-        className={`absolute top-0 left-0 w-full h-1/2 z-30 transition-transform duration-2000 ease-in-out ${
-          isGalleryOpen ? "-translate-y-[60%]" : "translate-y-0"
-        }`}
+        className={`absolute top-0 left-0 w-full h-1/2 z-30 transition-transform duration-2000 ease-in-out ${isGalleryOpen ? "-translate-y-[60%]" : "translate-y-0"
+          }`}
       >
         <div
           className={`-rotate-[15deg] absolute left-5 bottom-0 ${monthGlade.className} text-[75px] font-light text-neutral-700 whitespace-nowrap drop-shadow-2xl`}
@@ -123,9 +123,8 @@ const VerticalGallery = () => {
 
       {/* Door Effect Bottom */}
       <div
-        className={`absolute bottom-0 left-0 w-full h-1/2 z-30 transition-transform duration-2000 ease-in-out ${
-          isGalleryOpen ? "translate-y-[60%]" : "translate-y-0"
-        }`}
+        className={`absolute bottom-0 left-0 w-full h-1/2 z-30 transition-transform duration-2000 ease-in-out ${isGalleryOpen ? "translate-y-[60%]" : "translate-y-0"
+          }`}
       >
         <div
           className={`-rotate-[15deg] absolute right-5 top-0 ${monthGlade.className} text-[75px] font-light text-neutral-700 whitespace-nowrap drop-shadow-2xl`}
@@ -137,13 +136,11 @@ const VerticalGallery = () => {
       {/* Toggle Button */}
       <button
         onClick={toggleGallery}
-        className={`${
-          commuters.className
-        } transition-all duration-800 ease-out cursor-pointer absolute bottom-24 left-1/2 transform -translate-x-1/2 z-40 px-4 py-2 flex items-center gap-2 ${
-          isGalleryOpen
+        className={`${commuters.className
+          } transition-all duration-800 ease-out cursor-pointer absolute bottom-24 left-1/2 transform -translate-x-1/2 z-40 px-4 py-2 flex items-center gap-2 ${isGalleryOpen
             ? "bg-neutral-400 text-white border-none"
             : "bg-neutral-700 text-white rounded-none"
-        }`}
+          }`}
       >
         {isGalleryOpen ? (
           <>
@@ -157,18 +154,16 @@ const VerticalGallery = () => {
       {/* Gallery */}
       <div
         ref={scrollRef}
-        className={`flex h-screen w-full overflow-y-hidden overflow-x-auto scrollbar-hide transition-all duration-300 ${
-          isGalleryOpen
-            ? "cursor-grab active:cursor-grabbing"
-            : "cursor-default"
-        }`}
+        className={`flex h-screen w-full overflow-y-hidden overflow-x-auto scrollbar-hide transition-all duration-300 ${isGalleryOpen
+          ? "cursor-grab active:cursor-grabbing"
+          : "cursor-default"
+          }`}
       >
         <div
-          className={`absolute top-[50%] right-3 -translate-y-1/2 z-10 h-14 w-14 transition-opacity duration-700 ${
-            isGalleryOpen && !hasUserSwiped
-              ? "opacity-100"
-              : "opacity-0 pointer-events-none"
-          }`}
+          className={`absolute top-[50%] right-3 -translate-y-1/2 z-10 h-14 w-14 transition-opacity duration-700 ${isGalleryOpen && !hasUserSwiped
+            ? "opacity-100"
+            : "opacity-0 pointer-events-none"
+            }`}
         >
           <SwipeHandIcon />
         </div>
@@ -184,12 +179,11 @@ const VerticalGallery = () => {
                     <VerticalDate isGalleryOpen={isGalleryOpen} data={data} />
                   )}
                   <Image
-                    src={column.images[0].src}
+                    src={optimizeCloudinaryUrl(column.images[0].src)}
                     alt={column.images[0].alt}
                     fill
-                    className={`object-cover object-center transition-all duration-500 ${
-                      isGalleryOpen ? "grayscale-0" : "grayscale"
-                    }`}
+                    className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
+                      }`}
                   />
                 </div>
               </div>
@@ -202,12 +196,11 @@ const VerticalGallery = () => {
                 <div className="flex flex-col w-full h-full items-center justify-center">
                   <div className="relative w-full h-full">
                     <Image
-                      src={column.images[0].src}
+                      src={optimizeCloudinaryUrl(column.images[0].src)}
                       alt={column.images[0].alt}
                       fill
-                      className={`object-cover object-center transition-all duration-500 ${
-                        isGalleryOpen ? "grayscale-0" : "grayscale"
-                      }`}
+                      className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
+                        }`}
                     />
                     <div
                       className={`absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/10`}
@@ -237,12 +230,11 @@ const VerticalGallery = () => {
                 >
                   <div className="relative mb-16 w-full h-[50vh] aspect-[2/3]">
                     <Image
-                      src={column.images[0].src}
+                      src={optimizeCloudinaryUrl(column.images[0].src)}
                       alt={column.images[0].alt}
                       fill
-                      className={`object-cover object-center transition-all duration-500 ${
-                        isGalleryOpen ? "grayscale-0" : "grayscale"
-                      }`}
+                      className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
+                        }`}
                     />
                   </div>
                 </div>
@@ -253,12 +245,11 @@ const VerticalGallery = () => {
                 >
                   <div className="relative mb-16 w-full h-[50vh] aspect-[2/3]">
                     <Image
-                      src={column.images[0].src}
+                      src={optimizeCloudinaryUrl(column.images[0].src)}
                       alt={column.images[0].alt}
                       fill
-                      className={`object-cover object-center transition-all duration-500 ${
-                        isGalleryOpen ? "grayscale-0" : "grayscale"
-                      }`}
+                      className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
+                        }`}
                     />
                   </div>
                 </div>
@@ -268,12 +259,11 @@ const VerticalGallery = () => {
                   <div className="flex flex-col w-full h-[36vh] items-center justify-center">
                     <div className="relative w-full h-full">
                       <Image
-                        src={column.images[0].src}
+                        src={optimizeCloudinaryUrl(column.images[0].src)}
                         alt={column.images[0].alt}
                         fill
-                        className={`object-cover object-center transition-all duration-500 ${
-                          isGalleryOpen ? "grayscale-0" : "grayscale"
-                        }`}
+                        className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
+                          }`}
                       />
                     </div>
                   </div>
@@ -281,12 +271,11 @@ const VerticalGallery = () => {
                   <div className="flex flex-col w-full h-[36vh] items-center justify-center">
                     <div className="relative w-full h-full">
                       <Image
-                        src={column.images[1].src}
+                        src={optimizeCloudinaryUrl(column.images[1].src)}
                         alt={column.images[1].alt}
                         fill
-                        className={`object-cover object-center transition-all duration-500 ${
-                          isGalleryOpen ? "grayscale-0" : "grayscale"
-                        }`}
+                        className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
+                          }`}
                       />
                     </div>
                   </div>

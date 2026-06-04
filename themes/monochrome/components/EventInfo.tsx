@@ -4,6 +4,7 @@ import { Rundown } from "@/types/invitation-data";
 import { findImage } from "@/utils/find-image";
 import { formatDate } from "@/utils/format-date";
 import { formatTime } from "@/utils/format-time";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { DateTime } from "luxon";
 import Image from "next/image";
 import Link from "next/link";
@@ -50,7 +51,7 @@ const EventInfo = () => {
     <section className="p-10 relative w-full h-auto bg-[#f8f4ec] overflow-hidden">
       {/* BACKGROUND IMAGE */}
       <Image
-        src={findImage(data, "event-info")}
+        src={optimizeCloudinaryUrl(findImage(data, "event-info"))}
         alt="Event info"
         fill
         className="object-cover object-center z-0"

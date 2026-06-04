@@ -1,6 +1,7 @@
 import { commuters, lagunac, poppins } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
@@ -31,7 +32,7 @@ export default function OpeningScreen({
         >
           {/* COVER IMAGE */}
           <Image
-            src={findImage(data, "hero")}
+            src={optimizeCloudinaryUrl(findImage(data, "hero"))}
             alt="Hero background"
             fill
             priority

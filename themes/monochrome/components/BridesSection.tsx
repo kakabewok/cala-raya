@@ -3,6 +3,7 @@
 import { commuters, lagunac, monthGlade } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
@@ -56,7 +57,7 @@ export default function BrideSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/15 to-black/20 z-30 pointer-events-none" />
 
         <Image
-          src={findImage(data, "brides")}
+          src={optimizeCloudinaryUrl(findImage(data, "brides"))}
           alt="Bride"
           fill
           className="object-cover object-center"
