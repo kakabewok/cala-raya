@@ -3,6 +3,7 @@ import { findImage } from "@/utils/find-image";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 const Cover = () => {
   const { invitationData: data } = useInvitation();
@@ -33,7 +34,7 @@ const Cover = () => {
     >
       <motion.div style={{ clipPath, filter }} className="absolute inset-0">
         <Image
-          src={findImage(data, "cover")}
+          src={optimizeCloudinaryUrl(findImage(data, "cover"))}
           alt="Cover photo"
           fill
           className="object-cover object-center z-0"
@@ -44,7 +45,7 @@ const Cover = () => {
       <div className="absolute z-20 top-28">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <Image
-            src={findImage(data, "initial")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial"))}
             alt="Initial"
             width={150}
             height={150}

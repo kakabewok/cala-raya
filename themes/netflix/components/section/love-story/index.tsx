@@ -1,5 +1,6 @@
 import { useInvitation } from "@/hooks/use-invitation";
 import LoveItem from "./love-item";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 export default function LoveStory() {
   const { invitationData: data } = useInvitation();
@@ -20,7 +21,7 @@ export default function LoveStory() {
         {sortedStory?.map((item, index) => (
           <LoveItem
             key={index}
-            imageUrl={item.image_url}
+            imageUrl={optimizeCloudinaryUrl(item.image_url)}
             title={item.title}
             duration="26m 10s"
             description={item.content}

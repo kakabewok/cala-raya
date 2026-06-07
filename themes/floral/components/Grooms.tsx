@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { Instagram } from "lucide-react";
 import Link from "next/link";
 import { createSocialMediaLink } from "@/utils/create-social-media-link";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 const Grooms = () => {
   const { invitationData: data } = useInvitation();
@@ -30,7 +31,7 @@ const Grooms = () => {
     >
       <motion.div className="absolute inset-0 z-0" style={{ clipPath }}>
         <Image
-          src={findImage(data, "grooms")}
+          src={optimizeCloudinaryUrl(findImage(data, "grooms"))}
           alt="Grooms photo"
           fill
           className="object-cover object-center"

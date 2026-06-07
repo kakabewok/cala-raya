@@ -1,7 +1,5 @@
 import { useInvitation } from "@/hooks/use-invitation";
-import { findImage } from "@/utils/find-image";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Instagram } from "lucide-react";
 import Link from "next/link";
@@ -51,36 +49,36 @@ const Brides = () => {
       </div>
 
       {/* FLOWER GROUP - Tetap di posisi awal (Kanan Bawah) */}
-            <div className="absolute top-0 left-0 w-64 h-64 z-30 pointer-events-none">
-              <Image
-                src="/assets/images/floral/16.webp"
-                alt="Bunga 1"
-                width={130}
-                height={130}
-                className="swing-left-fast absolute -top-6 -left-10 z-40 transform rotate-45"
-              />
-              <Image
-                src="/assets/images/floral/28.webp"
-                alt="Bunga 2"
-                width={110}
-                height={110}
-                className="swing-right-slow absolute top-5 -left-5 z-30 transform rotate-[32deg]"
-              />
-              <Image
-                src="/assets/images/floral/12.webp"
-                alt="Bunga 3"
-                width={90}
-                height={90}
-                className="swing-left-slow absolute -top-5 left-7 z-30 transform rotate-[41deg]"
-              />
-              <Image
-                src="/assets/images/floral/21.webp"
-                alt="Bunga 4"
-                width={120}
-                height={120}
-                className="swing-right-slow absolute top-24 -left-12 z-20 transform rotate-[45deg]"
-              />
-            </div>
+      <div className="absolute top-0 left-0 w-64 h-64 z-30 pointer-events-none">
+        <Image
+          src="/assets/images/floral/16.webp"
+          alt="Bunga 1"
+          width={130}
+          height={130}
+          className="swing-left-fast absolute -top-6 -left-10 z-40 transform rotate-45"
+        />
+        <Image
+          src="/assets/images/floral/28.webp"
+          alt="Bunga 2"
+          width={110}
+          height={110}
+          className="swing-right-slow absolute top-5 -left-5 z-30 transform rotate-[32deg]"
+        />
+        <Image
+          src="/assets/images/floral/12.webp"
+          alt="Bunga 3"
+          width={90}
+          height={90}
+          className="swing-left-slow absolute -top-5 left-7 z-30 transform rotate-[41deg]"
+        />
+        <Image
+          src="/assets/images/floral/21.webp"
+          alt="Bunga 4"
+          width={120}
+          height={120}
+          className="swing-right-slow absolute top-24 -left-12 z-20 transform rotate-[45deg]"
+        />
+      </div>
 
       {/* FLOWER GROUP - Tetap di posisi awal (Kanan Bawah) */}
       <div className="absolute bottom-0 right-0 w-64 h-64 z-30 pointer-events-none">

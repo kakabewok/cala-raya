@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { optivaground } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { MoveDown } from "lucide-react";
 import Image from "next/image";
 
@@ -23,7 +24,7 @@ const Cover = () => {
   return (
     <div className="w-full relative h-screen flex items-center justify-center overflow-hidden bg-[#fdfaf6]">
       <Image
-        src={findImage(data, "cover")}
+        src={optimizeCloudinaryUrl(findImage(data, "cover"))}
         alt="Cover background"
         fill
         priority

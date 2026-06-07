@@ -88,15 +88,6 @@ const EventInfo = () => {
                 {formatDate(rundown.date, true, "en-US")?.toUpperCase()}
               </p>
               {rundown.start_time && (
-                // <p
-                //   className={`${lagunac.className} text-sm font-medium mb-2 text-neutral-700`}
-                // >
-                //   · {formatTime(rundown.start_time)} {rundown.time_zone} -{" "}
-                //   {rundown.end_time && rundown.start_time
-                //     ? `${formatTime(rundown.end_time)} ${rundown.time_zone}`
-                //     : "Selesai"}{" "}
-                //   ·
-                // </p>
                 <p
                   className={`${lagunac.className} text-sm font-medium mb-2 text-neutral-700`}
                 >

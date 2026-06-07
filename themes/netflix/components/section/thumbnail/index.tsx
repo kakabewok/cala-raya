@@ -6,6 +6,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import DetailInfo from "../detail-info";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 const TagItem = ({ title }: { title: string }) => {
   return (
@@ -51,7 +52,7 @@ export default function Thumbnail() {
   return (
     <div className="overflow-hidden mb-10 flex h-screen flex-col justify-end relative">
       <Image
-        src={findImage(data, "thumbnail")}
+        src={optimizeCloudinaryUrl(findImage(data, "thumbnail"))}
         alt="Hero background"
         fill
         priority

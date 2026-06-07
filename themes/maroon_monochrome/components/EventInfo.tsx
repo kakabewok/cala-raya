@@ -54,18 +54,6 @@ const EventInfo = () => {
               className="p-6 w-full gap-3 flex flex-col justify-center items-center"
               key={index}
             >
-              {/* <h1
-                className={`
-                px-5
-                pb-3
-                w-fit
-                border-b-1 border-rose-900
-                text-2xl font-light text-rose-900
-                mb-5
-            `}
-              >
-                {rundown.title.toUpperCase() || `RUNDOWN ${index + 1}`}
-              </h1> */}
               <h1 className="px-1 pb-3 border-b border-rose-900 text-2xl font-light text-rose-900 text-center mx-auto w-fit">
                 {rundown.title.toUpperCase() || `RUNDOWN ${index + 1}`}
                 {rundown.description && (

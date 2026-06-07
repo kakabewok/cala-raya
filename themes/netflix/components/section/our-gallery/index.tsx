@@ -1,5 +1,6 @@
 import { useInvitation } from "@/hooks/use-invitation";
 import { GalleryItem } from "./gallery-item";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 export default function OurGallery() {
   const { invitationData: data } = useInvitation();
@@ -20,7 +21,7 @@ export default function OurGallery() {
         {sortedGallery
           ?.filter((image) => image.type == "gallery")
           .map((item, index) => (
-            <GalleryItem key={index} src={item.url} />
+            <GalleryItem key={index} src={optimizeCloudinaryUrl(item.url)} />
           ))}
       </div>
     </div>

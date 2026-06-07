@@ -2,6 +2,7 @@ import { nyghtSerif, theSecret } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { createSocialMediaLink } from "@/utils/create-social-media-link";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,7 +18,7 @@ const ClosingSection = () => {
     <section className="bg-secondary-stylishb">
       <div className="relative">
         <Image
-          src={findImage(data, "closing")}
+          src={optimizeCloudinaryUrl(findImage(data, "closing"))}
           alt="Closing image"
           width={800}
           height={600}
@@ -26,45 +27,45 @@ const ClosingSection = () => {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-black/20 to-black/40"></div>
         {(data?.host_one_social_media || data?.host_two_social_media) && (
-            <div
-              className={`${nyghtSerif.className} w-full absolute right-0 top-0  text-neutral-200 p-6 text-right`}
-              data-aos="fade-up"
+          <div
+            className={`${nyghtSerif.className} w-full absolute right-0 top-0  text-neutral-200 p-6 text-right`}
+            data-aos="fade-up"
+          >
+            <p className="text-xs italic font-extralight mt-2 pb-2">
+              Bagikan hari bahagia di Instagram dan tag kami
+            </p>
+            <p
+              className={`${nyghtSerif.className} text-md tracking-wide font-medium flex gap-2 justify-end`}
             >
-              <p className="text-xs italic font-extralight mt-2 pb-2">
-                Bagikan hari bahagia di Instagram dan tag kami
-              </p>
-              <p
-                className={`${nyghtSerif.className} text-md tracking-wide font-medium flex gap-2 justify-end`}
-              >
-                {data?.host_one_social_media && (
-                  <span className={`text-xs pb-1`}>
-                    <Link
-                      href={createSocialMediaLink(
-                        data?.host_one_social_media || ""
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      @{data?.host_one_social_media}
-                    </Link>
-                  </span>
-                )}
-                {data?.host_two_social_media && (
-                  <span className="text-xs pb-1">
-                    <Link
-                      href={createSocialMediaLink(
-                        data?.host_two_social_media || ""
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      @{data?.host_two_social_media}
-                    </Link>
-                  </span>
-                )}
-              </p>
-            </div>
-          )}
+              {data?.host_one_social_media && (
+                <span className={`text-xs pb-1`}>
+                  <Link
+                    href={createSocialMediaLink(
+                      data?.host_one_social_media || ""
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @{data?.host_one_social_media}
+                  </Link>
+                </span>
+              )}
+              {data?.host_two_social_media && (
+                <span className="text-xs pb-1">
+                  <Link
+                    href={createSocialMediaLink(
+                      data?.host_two_social_media || ""
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @{data?.host_two_social_media}
+                  </Link>
+                </span>
+              )}
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="bg-secondary-stylishb w-full max-w-lg aspect-square flex justify-center items-center relative overflow-hidden ">

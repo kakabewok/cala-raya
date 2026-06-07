@@ -99,13 +99,6 @@ const EventInfo = () => {
                   {rundown.location_detail}
                 </p>
               )}
-
-              {/* <Link
-                href={rundown?.location_url || "#"}
-                className="py-2 px-4 text-xs bg-rose-900 text-white cursor-pointer hover:bg-rose-950"
-              >
-                LIHAT LOKASI
-              </Link> */}
             </div>
           ))}
       </div>

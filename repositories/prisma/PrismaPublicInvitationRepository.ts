@@ -20,11 +20,11 @@ const PUBLIC_INVITATION_INCLUDE = {
   stories: true,
   guests: true,
   rsvps: true,
+  videos: true,
 } as const;
 
 export class PrismaPublicInvitationRepository
-  implements IPublicInvitationRepository
-{
+  implements IPublicInvitationRepository {
   /**
    * Find invitation by slug and ID for public access
    */

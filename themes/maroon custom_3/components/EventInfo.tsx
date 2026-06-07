@@ -10,37 +10,6 @@ import Image from "next/image";
 const EventInfo = () => {
   const { invitationData: data } = useInvitation();
 
-  // const generateGoogleCalendarUrl = (rundown: Rundown): string => {
-  //   const date = rundown.date;
-  //   const startTime = rundown.start_time;
-  //   const endTime = rundown.end_time || startTime;
-
-  //   const startDateTimeISO = `${date}T${startTime}`;
-  //   const endDateTimeISO = `${date}T${endTime}`;
-
-  //   const start = DateTime.fromISO(startDateTimeISO)
-  //     .toUTC()
-  //     .toFormat("yyyyLLdd'T'HHmmss'Z'");
-  //   const end = DateTime.fromISO(endDateTimeISO)
-  //     .toUTC()
-  //     .toFormat("yyyyLLdd'T'HHmmss'Z'");
-
-  //   const eventTitle = data?.event_title || "Wedding Event";
-  //   const location = rundown.location || "-";
-  //   const rundownTitle = `(${rundown.title})` || ``;
-  //   const description = `${eventTitle} will be held at ${location} ${rundownTitle}`;
-
-  //   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-  //     eventTitle
-  //   )}&dates=${start}/${end}&details=${encodeURIComponent(
-  //     description
-  //   )}&location=${encodeURIComponent(
-  //     rundown.location_url || ""
-  //   )}&ctz=Asia/Jakarta`;
-
-  //   return googleCalendarUrl;
-  // };
-
   const generateGoogleCalendarUrl = (rundown: Rundown): string => {
     const dateObj = DateTime.fromJSDate(rundown.date as unknown as Date, { zone: 'Asia/Jakarta' });
     const date = dateObj.toFormat('yyyy-LL-dd');
@@ -125,22 +94,6 @@ const EventInfo = () => {
               >
                 Tambah ke Kalender
               </Link>
-
-              {/* <div className="flex flex-col items-center mb-6">
-                <h2 className="text-lg font-semibold text-rose-900 text-center leading-tight">
-                  {rundown.location}
-                </h2>
-                <p className="text-[11px] leading-relaxed font-light text-rose-800 text-center w-3/4 mt-1">
-                  {rundown.location_detail}
-                </p>
-              </div>
-
-              <Link
-                href={rundown?.location_url || "#"}
-                className="mt-2 py-3 px-8 text-[11px] tracking-[0.15em] bg-rose-900 text-white font-medium hover:bg-rose-950 transition-all shadow-sm"
-              >
-                LIHAT LOKASI
-              </Link> */}
             </div>
           ))}
       </div>

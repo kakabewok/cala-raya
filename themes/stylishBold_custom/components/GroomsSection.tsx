@@ -2,6 +2,7 @@ import { nyghtSerif } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { createSocialMediaLink } from "@/utils/create-social-media-link";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -53,7 +54,7 @@ export default function BrideSection() {
     >
       <motion.div style={{ clipPath }} className="absolute inset-0 z-20">
         <Image
-          src={findImage(data, "grooms")}
+          src={optimizeCloudinaryUrl(findImage(data, "grooms"))}
           alt="Bride"
           fill
           className="object-cover object-center"

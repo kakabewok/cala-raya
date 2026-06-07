@@ -1,5 +1,6 @@
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import Image from "next/image";
 
 export default function Bridegroom() {
@@ -15,7 +16,7 @@ export default function Bridegroom() {
         <div>
           <Image
             alt="Bride"
-            src={findImage(data, "brides")}
+            src={optimizeCloudinaryUrl(findImage(data, "brides"))}
             className="w-full rounded-sm"
             width={300}
             height={170}
@@ -32,7 +33,7 @@ export default function Bridegroom() {
         <div>
           <Image
             alt="Groom"
-            src={findImage(data, "grooms")}
+            src={optimizeCloudinaryUrl(findImage(data, "grooms"))}
             className="w-full rounded-sm"
             width={300}
             height={170}

@@ -5,6 +5,7 @@ import { useInvitation } from "@/hooks/use-invitation";
 import { amalfiCoast, ninfa, spectral } from "@/fonts/fonts";
 import { Button } from "@/components/ui/button";
 import SwipeHandIcon from "./SwipeHandIcon";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 interface GalleryImage {
   id: number;
@@ -160,14 +161,14 @@ const VerticalGallery = () => {
       <div
         ref={scrollRef}
         className={`flex h-screen w-full overflow-y-hidden overflow-x-auto scrollbar-hide transition-all duration-300 ${isGalleryOpen
-            ? "cursor-grab active:cursor-grabbing"
-            : "cursor-default"
+          ? "cursor-grab active:cursor-grabbing"
+          : "cursor-default"
           }`}
       >
         <div
           className={`absolute top-[50%] right-3 -translate-y-1/2 z-10 h-14 w-14 transition-opacity duration-700 ${isGalleryOpen && !hasUserSwiped
-              ? "opacity-100"
-              : "opacity-0 pointer-events-none"
+            ? "opacity-100"
+            : "opacity-0 pointer-events-none"
             }`}
         >
           <SwipeHandIcon />
@@ -193,7 +194,7 @@ const VerticalGallery = () => {
                     <div>{year}</div>
                   </div>
                   <Image
-                    src={column.images[0].src}
+                    src={optimizeCloudinaryUrl(column.images[0].src)}
                     alt={column.images[0].alt}
                     fill
                     className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
@@ -210,7 +211,7 @@ const VerticalGallery = () => {
                 <div className="flex flex-col w-full h-full items-center justify-center">
                   <div className="relative w-full h-full">
                     <Image
-                      src={column.images[0].src}
+                      src={optimizeCloudinaryUrl(column.images[0].src)}
                       alt={column.images[0].alt}
                       fill
                       className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
@@ -244,7 +245,7 @@ const VerticalGallery = () => {
                 >
                   <div className="relative mb-16 w-full h-[50vh] aspect-[2/3]">
                     <Image
-                      src={column.images[0].src}
+                      src={optimizeCloudinaryUrl(column.images[0].src)}
                       alt={column.images[0].alt}
                       fill
                       className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
@@ -259,7 +260,7 @@ const VerticalGallery = () => {
                 >
                   <div className="relative mb-16 w-full h-[50vh] aspect-[2/3]">
                     <Image
-                      src={column.images[0].src}
+                      src={optimizeCloudinaryUrl(column.images[0].src)}
                       alt={column.images[0].alt}
                       fill
                       className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
@@ -273,7 +274,7 @@ const VerticalGallery = () => {
                   <div className="flex flex-col w-full h-[36vh] items-center justify-center">
                     <div className="relative w-full h-full">
                       <Image
-                        src={column.images[0].src}
+                        src={optimizeCloudinaryUrl(column.images[0].src)}
                         alt={column.images[0].alt}
                         fill
                         className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"
@@ -285,7 +286,7 @@ const VerticalGallery = () => {
                   <div className="flex flex-col w-full h-[36vh] items-center justify-center">
                     <div className="relative w-full h-full">
                       <Image
-                        src={column.images[1].src}
+                        src={optimizeCloudinaryUrl(column.images[1].src)}
                         alt={column.images[1].alt}
                         fill
                         className={`object-cover object-center transition-all duration-500 ${isGalleryOpen ? "grayscale-0" : "grayscale"

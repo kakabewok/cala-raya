@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { didot, remineFares } from "@/fonts/fonts";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 const Cover = () => {
   const { invitationData: data } = useInvitation();
@@ -47,7 +48,7 @@ const Cover = () => {
     >
       <motion.div style={{ clipPath, filter }} className="absolute inset-0">
         <Image
-          src={findImage(data, "cover")}
+          src={optimizeCloudinaryUrl(findImage(data, "cover"))}
           alt="Cover photo"
           fill
           quality={100}

@@ -1,6 +1,7 @@
 import { poppins, remineFares } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,7 +23,7 @@ const ClosingSection = () => {
     <section className="bg-[#ffffff]">
       <div className="relative w-full">
         <Image
-          src={findImage(data, "closing")}
+          src={optimizeCloudinaryUrl(findImage(data, "closing"))}
           alt="Closing image"
           width={1000}
           height={600}
@@ -126,7 +127,7 @@ const ClosingSection = () => {
         </div>
         <div className="text-center flex flex-col justify-center items-center w-full">
           <Image
-            src={findImage(data, "initial")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial"))}
             alt="Initial"
             width={80}
             height={80}

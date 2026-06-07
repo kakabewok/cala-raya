@@ -56,9 +56,8 @@ export default function OpeningScreen({
           </motion.div>
           {/* left */}
           <div
-            className={`${
-              isDomLoaded ? "-translate-x-full" : "translate-x-0"
-            } border-r-[1px] border-rose-900 backdrop-blur-sm absolute top-0 left-0 w-1/2 h-full z-30 transition-transform duration-1000 ease-in-out`}
+            className={`${isDomLoaded ? "-translate-x-full" : "translate-x-0"
+              } border-r-[1px] border-rose-900 backdrop-blur-sm absolute top-0 left-0 w-1/2 h-full z-30 transition-transform duration-1000 ease-in-out`}
           >
             <Image
               src="/assets/images/floral/16.webp"
@@ -91,9 +90,8 @@ export default function OpeningScreen({
           </div>
           {/* right */}
           <div
-            className={`${
-              isDomLoaded ? "translate-x-full" : "translate-x-0"
-            } border-l-[1px] border-rose-900 backdrop-blur-sm absolute top-0 right-0 w-1/2 h-full z-30 transition-transform duration-1000 ease-in-out`}
+            className={`${isDomLoaded ? "translate-x-full" : "translate-x-0"
+              } border-l-[1px] border-rose-900 backdrop-blur-sm absolute top-0 right-0 w-1/2 h-full z-30 transition-transform duration-1000 ease-in-out`}
           >
             <Image
               src="/assets/images/floral/16.webp"

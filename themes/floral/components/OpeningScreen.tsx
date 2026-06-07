@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { montserrat, optivaground } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
@@ -31,7 +32,7 @@ const OpeningScreen = ({
           transition={{ duration: 1, ease: "easeInOut" }}
         >
           <Image
-            src={findImage(data, "hero")}
+            src={optimizeCloudinaryUrl(findImage(data, "hero"))}
             alt="Hero background"
             fill
             priority

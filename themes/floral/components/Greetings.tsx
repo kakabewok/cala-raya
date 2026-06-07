@@ -1,5 +1,6 @@
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import Image from "next/image";
 
 export default function Greetings() {
@@ -67,7 +68,7 @@ export default function Greetings() {
               className="flex items-center justify-center"
             >
               <Image
-                src={findImage(data, "initial")}
+                src={optimizeCloudinaryUrl(findImage(data, "initial"))}
                 alt="Initial"
                 width={90}
                 height={90}

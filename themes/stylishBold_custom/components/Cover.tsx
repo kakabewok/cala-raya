@@ -5,6 +5,7 @@ import { findImage } from "@/utils/find-image";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 const Cover = () => {
   const { invitationData: data } = useInvitation();
@@ -44,7 +45,7 @@ const Cover = () => {
         className="absolute inset-0 z-20"
       >
         <Image
-          src={findImage(data, "cover")}
+          src={optimizeCloudinaryUrl(findImage(data, "cover"))}
           alt="Cover photo"
           fill
           className="object-cover object-center"
@@ -56,13 +57,13 @@ const Cover = () => {
       <div className="absolute bottom-0 right-0 w-1/2 h-auto z-10 flex flex-col items-center justify-center gap-2">
         <div className="flex justify-center items-center gap-2">
           <Image
-            src={findImage(data, "initial-outline")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial-outline"))}
             alt="intial bawah"
             width={144}
             height={144}
           />
           <Image
-            src={findImage(data, "initial-outline")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial-outline"))}
             alt="initial bawah"
             width={114}
             height={114}
@@ -70,13 +71,13 @@ const Cover = () => {
         </div>
         <div className="flex justify-center items-center gap-2">
           <Image
-            src={findImage(data, "initial-outline")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial-outline"))}
             alt="intial bawah"
             width={110}
             height={110}
           />
           <Image
-            src={findImage(data, "initial-outline")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial-outline"))}
             alt="initial bawah"
             width={173}
             height={173}
@@ -84,13 +85,13 @@ const Cover = () => {
         </div>
         <div className="flex justify-center items-center gap-2">
           <Image
-            src={findImage(data, "initial-outline")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial-outline"))}
             alt="intial bawah"
             width={90}
             height={90}
           />
           <Image
-            src={findImage(data, "initial-outline")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial-outline"))}
             alt="initial bawah"
             width={110}
             height={110}
@@ -98,13 +99,13 @@ const Cover = () => {
         </div>
         <div className="flex justify-center items-center gap-2">
           <Image
-            src={findImage(data, "initial-outline")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial-outline"))}
             alt="intial bawah"
             width={193}
             height={193}
           />
           <Image
-            src={findImage(data, "initial-outline")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial-outline"))}
             alt="initial bawah"
             width={150}
             height={150}

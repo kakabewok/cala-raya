@@ -22,9 +22,7 @@ export default function Greetings() {
     damping: 20,
     stiffness: 50,
   });
-  // -translate-y-[5rem]
-  // translate-y-[4.2rem]
-  //text di grup
+
   return (
     <div
       className={`${nyghtSerif.className} h-screen w-full bg-[#ede0d1] flex flex-col justify-between overflow-hidden relative`}

@@ -1,5 +1,6 @@
 import { useInvitation } from "@/hooks/use-invitation";
 import RundownItem from "./rundown-item";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 export default function TimelineAndLocation() {
   const { invitationData: data } = useInvitation();
@@ -25,7 +26,7 @@ export default function TimelineAndLocation() {
             start_time={item.start_time}
             end_time={item.end_time}
             time_zone={item.time_zone}
-            image_url={item.image_url}
+            image_url={optimizeCloudinaryUrl(item.image_url)}
             key={index}
           />
         ))}

@@ -4,6 +4,7 @@ import { poppins, remineFares } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { createSocialMediaLink } from "@/utils/create-social-media-link";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { Instagram } from "lucide-react";
 import Image from "next/image";
@@ -48,7 +49,7 @@ export default function BrideSection() {
     >
       <motion.div style={{ clipPath }} className="absolute inset-0 z-20">
         <Image
-          src={findImage(data, "brides")}
+          src={optimizeCloudinaryUrl(findImage(data, "brides"))}
           alt="Bride"
           fill
           quality={100}
@@ -82,9 +83,8 @@ export default function BrideSection() {
           className={`${poppins.className} w-full flex items-end justify-between content-between`}
         >
           <div
-            className={`${
-              !data?.host_two_social_media ? "opacity-0" : ""
-            } flex gap-2 items-center text-white text-xs bg-transparent rounded-none border border-white cursor-pointer px-3 py-2`}
+            className={`${!data?.host_two_social_media ? "opacity-0" : ""
+              } flex gap-2 items-center text-white text-xs bg-transparent rounded-none border border-white cursor-pointer px-3 py-2`}
           >
             <Instagram className="h-4 w-4 font-light" />{" "}
             <Link

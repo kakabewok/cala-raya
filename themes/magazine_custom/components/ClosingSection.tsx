@@ -2,6 +2,7 @@ import { poppins, remineFares } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { createSocialMediaLink } from "@/utils/create-social-media-link";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +12,7 @@ const ClosingSection = () => {
     <section className="bg-[#ffffff]">
       <div className="relative">
         <Image
-          src={findImage(data, "closing")}
+          src={optimizeCloudinaryUrl(findImage(data, "closing"))}
           alt="Closing image"
           width={800}
           height={600}
@@ -52,7 +53,7 @@ const ClosingSection = () => {
               </span>
             </p>
             <p className="text-xs font-medium mt-4">
-              Share the joy on Instagram 
+              Share the joy on Instagram
               <br />
               and tag us!
             </p>
@@ -73,7 +74,7 @@ const ClosingSection = () => {
         </div>
         <div className="text-center flex justify-center items-center">
           <Image
-            src={findImage(data, "initial")}
+            src={optimizeCloudinaryUrl(findImage(data, "initial"))}
             alt="Initial"
             width={120}
             height={120}

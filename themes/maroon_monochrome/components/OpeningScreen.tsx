@@ -1,6 +1,7 @@
 import { commuters, lagunac, poppins } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -41,24 +42,6 @@ export default function OpeningScreen({
           exit={{ y: "-100%" }}
           transition={{ duration: 1.5, ease: "easeIn" }}
         >
-          {/* COVER IMAGE */}
-          {/* <Image
-            src={findImage(data, "cover")}
-            alt="Hero background"
-            fill
-            priority
-            className="object-cover object-center z-0"
-          /> */}
-          {/* <video
-            className="absolute inset-0 w-full h-full object-cover object-center z-0"
-            autoPlay
-            muted
-            playsInline
-            preload="auto"
-          >
-            <source src={data?.videos?.[0].url} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video> */}
           <video
             ref={videoRef}
             muted
@@ -79,7 +62,7 @@ export default function OpeningScreen({
                 transition={{ duration: 3 }}
               >
                 <Image
-                  src={findImage(data, "initial")}
+                  src={optimizeCloudinaryUrl(findImage(data, "initial"))}
                   alt="Initial"
                   priority
                   width={80}

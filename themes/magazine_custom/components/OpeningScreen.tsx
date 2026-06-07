@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { poppins } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
@@ -31,7 +32,7 @@ export default function OpeningScreen({
           transition={{ duration: 1, ease: "easeInOut" }}
         >
           <Image
-            src={findImage(data, "hero")}
+            src={optimizeCloudinaryUrl(findImage(data, "hero"))}
             alt="Hero background"
             fill
             quality={100}
@@ -48,7 +49,7 @@ export default function OpeningScreen({
                 transition={{ duration: 1, delay: 1.5 }}
               >
                 <Image
-                  src={findImage(data, "initial")}
+                  src={optimizeCloudinaryUrl(findImage(data, "initial"))}
                   alt="Initial"
                   priority
                   width={120}

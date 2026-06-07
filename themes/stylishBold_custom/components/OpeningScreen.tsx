@@ -1,6 +1,7 @@
 import { nyghtSerif } from "@/fonts/fonts";
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
@@ -30,7 +31,7 @@ export default function OpeningScreen({
           transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
         >
           <Image
-            src={findImage(data, "hero")}
+            src={optimizeCloudinaryUrl(findImage(data, "hero"))}
             alt="Hero background"
             fill
             priority
@@ -49,7 +50,7 @@ export default function OpeningScreen({
                 transition={{ duration: 2.5, delay: 0.7 }}
               >
                 <Image
-                  src={findImage(data, "initial")}
+                  src={optimizeCloudinaryUrl(findImage(data, "initial"))}
                   alt="Initial"
                   priority
                   width={220}

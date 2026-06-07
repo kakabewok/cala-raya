@@ -19,6 +19,7 @@ import TitleInfo from "../title-info";
 import WishSection from "../wish";
 import Image from "next/image";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 export default function DetailInfo() {
   const { invitationData: data } = useInvitation();
@@ -36,7 +37,7 @@ export default function DetailInfo() {
     <div className="space-y-5 pt-4 pb-10 relative">
       <div className="relative aspect-square px-2">
         <Image
-          src={findImage(data, "hero")}
+          src={optimizeCloudinaryUrl(findImage(data, "hero"))}
           alt="Hero"
           fill
           priority

@@ -1,5 +1,6 @@
 import { useInvitation } from "@/hooks/use-invitation";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 import Image from "next/image";
 
 export default function BreakingNews() {
@@ -10,7 +11,7 @@ export default function BreakingNews() {
       <h2 className="mb-4 text-lg font-bold">Breaking News</h2>
       <div className="relative aspect-square">
         <Image
-          src={findImage(data, "message")}
+          src={optimizeCloudinaryUrl(findImage(data, "message"))}
           alt="breaking news"
           fill
           priority

@@ -29,7 +29,7 @@ const EventInfo = () => {
               <p className="text-2xl font-light">
                 {formatTime(rundown.start_time)}
                 {" - "} {formatTime(rundown.end_time) ?? "selesai"}{" "}
-                {rundown.time_zone} {}
+                {rundown.time_zone} { }
               </p>
             </div>
           ))}

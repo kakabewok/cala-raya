@@ -49,7 +49,7 @@ export default function OpeningScreen({
                 transition={{ duration: 3 }}
               >
                 <Image
-                  src={findImage(data, "initial")}
+                  src={optimizeCloudinaryUrl(findImage(data, "initial"))}
                   alt="Initial"
                   priority
                   width={80}

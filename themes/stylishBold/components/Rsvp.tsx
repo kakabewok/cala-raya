@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useInvitation } from "@/hooks/use-invitation";
 import Image from "next/image";
 import { findImage } from "@/utils/find-image";
+import { optimizeCloudinaryUrl } from "@/utils/optimize-image";
 
 const RSVP = () => {
   const { invitationData, guest } = useInvitation();
@@ -171,16 +172,6 @@ const RSVP = () => {
               />
             </div>
 
-            {/* Tombol Kirim */}
-            {/* <div className="text-center pt-4">
-              <button
-                disabled={loading}
-                type="submit"
-                className="px-10 py-3 font-serif border-2 border-white rounded-full bg-[#802B2B] text-white transition-colors duration-300 hover:bg-white hover:text-[#802B2B]"
-              >
-                Kirim
-              </button>
-            </div> */}
             <div className="w-full flex justify-center">
               <button
                 className="text-center cursor-pointer relative items-center justify-center font-normal bg-transparent overflow-visible px-4 py-[10px] text-xs"
@@ -256,7 +247,7 @@ const RSVP = () => {
         {/* footer rsvp */}
         <div className="py-3 w-full h-90 bg-[#7A2422] relative">
           <Image
-            src={findImage(invitationData, "rsvp-footer")}
+            src={optimizeCloudinaryUrl(findImage(invitationData, "rsvp-footer"))}
             alt="rsvp image"
             fill
             className="object-cover object-center transition-all duration-500"
