@@ -122,7 +122,7 @@ const VerticalGallery = () => {
         <div
           className={`-rotate-[15deg] absolute left-5 bottom-0 ${amalfiCoast.className} text-[75px] font-light text-primary-mono3 whitespace-nowrap drop-shadow-2xl`}
         >
-          {data?.host_two_nickname.toLowerCase()}
+          {data?.host_two_nickname}
         </div>
       </div>
 
@@ -134,7 +134,7 @@ const VerticalGallery = () => {
         <div
           className={`-rotate-[15deg] absolute right-5 top-0 ${amalfiCoast.className} text-[75px] font-light text-primary-mono3 whitespace-nowrap drop-shadow-2xl`}
         >
-          {data?.host_one_nickname.toLowerCase()}
+          {data?.host_one_nickname}
         </div>
       </div>
 

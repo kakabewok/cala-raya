@@ -67,6 +67,7 @@ const EventInfo = () => {
                   text-2xl tracking-[0.2em] text-primary-mono3
                   mb-6
                   font-normal
+                  text-center
                 `}
               >
                 {rundown.title.toUpperCase() || `RUNDOWN ${index + 1}`}
@@ -75,14 +76,14 @@ const EventInfo = () => {
               {/* DATE & TIME GROUP */}
               <div className="flex flex-col items-center gap-1 mb-4">
                 <p className="text-base font-light tracking-widest text-primary-mono3">
-                  {formatDate(rundown.date, true)?.toUpperCase()}
+                  {formatDate(rundown.date, true, "en-US")?.toUpperCase()}
                 </p>
                 <p className={`${gandhiSerif.className} text-sm font-light text-primary-mono3`}>
                   {formatTime(rundown.start_time)} {rundown.time_zone}
-                  {" — "}
+                  {""}
                   {rundown.end_time
                     ? `${formatTime(rundown.end_time)} ${rundown.time_zone}`
-                    : "Selesai"}
+                    : ""}
                 </p>
               </div>
 
@@ -92,7 +93,7 @@ const EventInfo = () => {
                 rel="noopener noreferrer"
                 className="text-[10px] tracking-wider font-medium underline underline-offset-4 text-primary-mono3 hover:text-primary-mono2 transition-colors mb-8"
               >
-                Tambah ke Kalender
+                Add to Calendar
               </Link>
             </div>
           ))}
@@ -112,7 +113,7 @@ const EventInfo = () => {
                   font-normal
                 `}
           >
-            LOKASI
+            LOCATION
           </h1>
           <h2 className="text-lg font-light text-primary-mono3 text-center leading-relaxed">
             {data?.rundowns?.[0].location}
@@ -126,7 +127,7 @@ const EventInfo = () => {
           href={data?.rundowns?.[0].location_url || "#"}
           className="my-5 py-3 px-8 text-[11px] tracking-[0.15em] bg-primary-mono3 text-white font-medium hover:bg-text-mono3 transition-all shadow-sm"
         >
-          LIHAT LOKASI
+          VIEW LOCATION
         </Link>
       </div>
 

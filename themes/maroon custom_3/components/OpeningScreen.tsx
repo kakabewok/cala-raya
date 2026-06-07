@@ -143,14 +143,14 @@ export default function OpeningScreen({
             <div
               className={`${ninfa.className} w-full gap-4 absolute left-1/2 transform -translate-x-1/2 bottom-32 tracking-wider ${poppins.className} flex flex-col items-center justify-center`}
             >
-              <p className="text-sm text-neutral-600">Kepada Yth.</p>
+              <p className="text-sm text-neutral-600">Specially for</p>
               <p className="text-2xl text-primary-mono3">{guest?.name}</p>
               <Button
                 size="lg"
                 onClick={handleClick}
-                className="text-xs bg-primary-mono3 rounded-none cursor-pointer hover:bg-line-mono3 text-white"
+                className="text-xs bg-primary-mono3 rounded-none cursor-pointer hover:bg-text-mono3 text-white transition-colors duration-300 ease-in-out"
               >
-                BUKA UNDANGAN
+                OPEN INVITATION
               </Button>
             </div>
           </div>

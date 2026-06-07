@@ -27,7 +27,7 @@ const Couple = () => {
           <h2 className={`${amalfiCoast.className} font-medium text-xl text-primary-mono3 mb-5 capitalize`}>
             {data?.host_two_name}
           </h2>
-          <p className={`${playfair.className} text-xs md:text-sm font-light text-text-mono3 mb-4 italic`}>
+          <p className={`${playfair.className} text-xs md:text-sm font-light text-primary-mono3 mb-4 italic`}>
             {data?.host_two_additional_info}
           </p>
           {data?.host_two_social_media && (
@@ -47,7 +47,7 @@ const Couple = () => {
           <h2 className={`${amalfiCoast.className} font-medium text-xl text-primary-mono3 mb-2 capitalize`}>
             {data?.host_one_name}
           </h2>
-          <p className={`${playfair.className} text-xs md:text-sm font-light text-text-mono3 mb-4 italic`}>
+          <p className={`${playfair.className} text-xs md:text-sm font-light text-primary-mono3 mb-4 italic`}>
             {data?.host_one_additional_info}
           </p>
           {data?.host_one_social_media && (

@@ -8,7 +8,7 @@ const GiftInfo = () => {
   const { invitationData: data } = useInvitation();
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [addressCopied, setAddressCopied] = useState<boolean>(false);
-  const [isGiftInfoOpen, setIsGiftInfoOpen] = useState<boolean>(false);
+  const [isGiftInfoOpen, setIsGiftInfoOpen] = useState<boolean>(true);
 
   const handleCopy = (text: string, index?: number) => {
     navigator.clipboard.writeText(text);
@@ -29,12 +29,13 @@ const GiftInfo = () => {
       <div
         data-aos="zoom-in">
         <h2 className={`text-primary-mono3 text-2xl font-light tracking-wide mb-2`}>
-          TANDA KASIH
+          WEDDING GIFT
         </h2>
         <div className="w-24 h-[0.5px] bg-primary-mono3 mx-auto mb-6"></div>
         <p className="text-xs text-primary-mono3 font-light mb-8 tracking-wider">
-          Doa restu yang kami terima sangat berarti, namun jika memberi merupakan
-          tanda kasih, tentunya semakin melengkapi kebahagiaan kami.
+          Your blessings mean the world to us.
+          But if you wish to celebrate with a gift,
+          it would add so much joy to our special day.
         </p>
 
         {!isGiftInfoOpen ? (
@@ -43,7 +44,7 @@ const GiftInfo = () => {
               onClick={() => setIsGiftInfoOpen(true)}
               className={`bg-primary-mono3 text-white text-xs px-6 py-2 cursor-pointer font-light`}
             >
-              KIRIM HADIAH
+              SEND GIFT
             </button>
           </div>
         ) : (
@@ -57,7 +58,6 @@ const GiftInfo = () => {
                 <p className="font-bold mb-1 text-xs">{gift.provider_name}</p>
                 <p className="mb-1 text-xs">{gift.account_number}</p>
                 <p className="mb-4 text-xs">
-                  a.n.{" "}
                   <span className="font-semibold">{gift.account_holder}</span>
                 </p>
                 <button
@@ -67,7 +67,7 @@ const GiftInfo = () => {
                     : "bg-primary-mono3 text-white"
                     } text-xs px-6 py-2 cursor-pointer`}
                 >
-                  {copiedIndex === idx ? "Tersalin" : "Salin"}
+                  {copiedIndex === idx ? "Copied" : "Copy"}
                 </button>
               </div>
             ))}
@@ -75,7 +75,7 @@ const GiftInfo = () => {
             {/* Address */}
             {data?.gift_infos?.[0].gift_delivery_address && (
               <div className="bg-white rounded-sm py-5 px-4">
-                <p className="font-bold mb-2 text-xs text-primary-mono3">ALAMAT</p>
+                <p className="font-bold mb-2 text-xs text-primary-mono3">ADDRESS</p>
                 <p className={`${gandhiSerif.className} text-primary-mono3 text-xs font-light mb-4`}>
                   {data?.gift_infos?.[0].gift_delivery_address || ""}
                 </p>
@@ -88,7 +88,7 @@ const GiftInfo = () => {
                     : "bg-primary-mono3 text-white"
                     } text-xs px-6 py-2 cursor-pointer`}
                 >
-                  {addressCopied ? "Tersalin" : "Salin"}
+                  {addressCopied ? "Copied" : "Copy"}
                 </button>
               </div>
             )}

@@ -92,7 +92,7 @@ const RSVP = () => {
             <label
               className={`block text-xs tracking-wide text-primary-mono3 font-medium mb-2`}
             >
-              NAMA
+              NAME
             </label>
             <input
               type="text"
@@ -109,13 +109,13 @@ const RSVP = () => {
             <label
               className={`block text-xs tracking-wide text-primary-mono3 font-medium mb-2`}
             >
-              UCAPAN <span className={`${poppins.className}`}>&</span> DOA
+              WISHES
             </label>
             <textarea
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="Ucapan untuk pengantin"
+              placeholder="Wishing you a lifetime of love"
               rows={4}
               className="text-primary-mono3 text-xs w-full bg-white px-4 py-3 focus:outline-none focus:ring-1 focus:ring-neutral-400"
               required
@@ -127,7 +127,7 @@ const RSVP = () => {
             <label
               className={`block text-xs tracking-wide text-primary-mono3 font-medium mb-2`}
             >
-              KONFIRMASI KEHADIRAN
+              ATTENDANCE
             </label>
             <select
               name="attending"
@@ -136,11 +136,10 @@ const RSVP = () => {
               className="cursor-pointer text-xs text-primary-mono3 w-full px-4 py-3 bg-white appearance-none focus:outline-none focus:ring-1 focus:ring-neutral-400"
               required
             >
-              <option value="">Pilih</option>
-              <option value="1">1 Orang</option>
-              <option value="2">2 Orang</option>
-              {/* <option value="3">Lebih dari 2 orang</option> */}
-              <option value="0">Tidak Hadir</option>
+              <option value="">Select</option>
+              <option value="1">1 Person</option>
+              <option value="2">2 People</option>
+              <option value="0">Cannot Attend</option>
             </select>
           </div>
 
@@ -149,7 +148,7 @@ const RSVP = () => {
             type="submit"
             className="cursor-pointer w-full bg-primary-mono3 text-white py-2 text-xs tracking-wide hover:bg-text-mono3 transition"
           >
-            KIRIM
+            SEND
           </button>
         </form>
       </section>
@@ -178,7 +177,7 @@ const RSVP = () => {
           className={`${ninfa.className} z-10 text-2xl font-light text-center mb-2 tracking-wide relative`}
         >
           <span>
-            UCAPAN <span className={`${poppins.className}`}>&</span> DOA
+            WISHES
           </span>
           <span className="block border-b border-primary-mono3 w-28 mx-auto mt-2"></span>
         </h2>

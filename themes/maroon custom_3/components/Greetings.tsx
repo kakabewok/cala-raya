@@ -33,12 +33,11 @@ export default function Greetings() {
           {/* Polaroid caption */}
           <div className={`${playfair.className} w-full flex flex-col items-center justify-center py-[14px] px-2 gap-[8px] text-primary-mono3`}>
             <p className="text-[11px] text-center leading-[1.85] tracking-[0.01em]">
-              "Above all, love each other deeply,
-              because love covers over a multitude of sins."
+              "And above all these things put on charity, which is the bond of perfectness."
             </p>
             {/* <div className="w-8 h-px bg-rose-800 mt-1" /> */}
             <p className="text-[11px] tracking-[0.16em] text-primary-mono3 uppercase font-semibold">
-              1 Peter 4:8
+              Colossians 3:14
             </p>
           </div>
         </div>
