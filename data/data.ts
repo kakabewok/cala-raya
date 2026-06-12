@@ -275,6 +275,24 @@ const portfolios = [
       "https://res.cloudinary.com/dk16ng09n/image/upload/v1766313919/personal/web-porto/nadhar_rginzu.png",
     url: "https://calaraya.vercel.app/nadiah-haris?id=XyUaw",
   },
+  {
+    title: "Nadara & Haoxu",
+    description: "",
+    product: "Undangan Digital",
+    type: "Monochrome",
+    image:
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1781266429/personal/web-porto/haoxu_kyyahg.png",
+    url: "https://calaraya.vercel.app/haoxu-nadara?id=zMHAAp",
+  },
+  {
+    title: "Fancy & Hans",
+    description: "",
+    product: "Undangan Digital",
+    type: "Maroon",
+    image:
+      "https://res.cloudinary.com/dk16ng09n/image/upload/v1781266431/personal/web-porto/hans_gdbrfm.png",
+    url: "https://calaraya.vercel.app/fancy-hans?id=rYrTKLV",
+  },
 ];
 
 const reviews = [
