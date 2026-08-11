@@ -4,7 +4,8 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer className="bg-stone-900 text-white">
+    <footer className="bg-[#1C1917] text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-noise opacity-10 pointer-events-none" />
       <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
           {/* Brand */}
@@ -17,7 +18,7 @@ function Footer() {
                 height={36}
                 className="rounded-full"
               />
-              <span className="text-[16px] font-semibold tracking-wide">
+              <span className="font-playfair text-xl tracking-wide">
                 Calaraya
               </span>
             </div>
@@ -60,9 +61,9 @@ function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 bg-stone-800 hover:bg-stone-700 rounded-lg flex items-center justify-center transition-colors duration-200"
+                  className="group w-9 h-9 bg-white/5 hover:bg-[#B8943E] rounded-lg flex items-center justify-center transition-colors duration-200"
                 >
-                  <social.icon className="w-4 h-4 text-stone-400" />
+                  <social.icon className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
                 </a>
               ))}
             </div>

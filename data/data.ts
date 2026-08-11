@@ -67,11 +67,11 @@ const faqs = [
 
 const navLinks = [
   { name: "Beranda", href: "#home" },
-  { name: "Kenapa Kami", href: "#why-us" },
-  { name: "Tema", href: "#themes" },
-  { name: "Website", href: "#website" },
+  { name: "Koleksi", href: "#koleksi" },
+  { name: "Fitur", href: "#fitur" },
+  { name: "Testimoni", href: "#testimoni" },
   { name: "Portfolio", href: "#portfolio" },
-  { name: "Review", href: "#reviews" },
+  { name: "Harga", href: "#harga" },
   { name: "FAQ", href: "#faq" },
 ];
 

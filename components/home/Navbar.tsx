@@ -76,7 +76,7 @@ function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled || isOpen
-            ? "bg-white shadow-[0_1px_0_0_rgba(0,0,0,0.06)]"
+            ? "bg-[#FAF8F5] shadow-[0_1px_0_0_rgba(0,0,0,0.06)]"
             : "bg-transparent"
         }`}
       >
@@ -130,7 +130,7 @@ function Navbar() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2 bg-stone-900 text-white text-[13px] font-medium rounded-lg hover:bg-stone-800 transition-colors duration-200 tracking-wide"
+                className="px-5 py-2 bg-[#B8943E] text-white text-[13px] font-medium rounded-lg hover:bg-[#a07c2d] transition-colors duration-200 tracking-wide"
               >
                 Konsultasi
               </a>
@@ -173,7 +173,7 @@ function Navbar() {
 
         {/* Mobile Menu — slide down with opacity + translate */}
         <div
-          className={`lg:hidden bg-white border-t border-stone-100 overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+          className={`lg:hidden bg-[#FAF8F5] border-t border-stone-100/60 overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
             isOpen
               ? "max-h-[calc(100vh-64px)] opacity-100 translate-y-0"
               : "max-h-0 opacity-0 -translate-y-1"
@@ -222,7 +222,7 @@ function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="block text-center w-full px-5 py-3 bg-stone-900 text-white text-[15px] font-medium rounded-lg active:bg-stone-800 transition-colors"
+                className="block text-center w-full px-5 py-3 bg-[#B8943E] text-white text-[15px] font-medium rounded-lg active:bg-[#a07c2d] transition-colors"
               >
                 Konsultasi Gratis
               </a>

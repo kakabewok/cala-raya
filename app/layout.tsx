@@ -1,4 +1,4 @@
-import { geistMono, geistSans } from "@/fonts/fonts";
+import { geistMono, geistSans, playfair, cursiveFont } from "@/fonts/fonts";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./globals.css";
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${cursiveFont.variable} antialiased`}
       >
         <Providers>
           <Suspense>{children}</Suspense>

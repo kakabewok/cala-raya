@@ -8,14 +8,14 @@ function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-[#FDFBF7]">
+    <section id="faq" className="py-20 md:py-28 bg-[#FAF8F5]">
       <div className="max-w-2xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-14">
-          <p className="text-[12px] md:text-[13px] font-medium tracking-[0.2em] uppercase text-stone-400 mb-3">
+          <p className="text-[12px] md:text-[13px] font-medium tracking-[0.2em] uppercase text-[#B8943E] mb-3">
             FAQ
           </p>
-          <h2 className="text-2xl md:text-[2rem] font-semibold text-stone-900 tracking-tight mb-4">
+          <h2 className="font-playfair text-4xl md:text-[2.5rem] text-stone-900 mb-5">
             Pertanyaan Umum
           </h2>
           <p className="text-[15px] text-stone-500 leading-relaxed">
@@ -44,8 +44,8 @@ function FAQ() {
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 flex-shrink-0 text-stone-400 transition-transform duration-200 ${
-                      isOpen ? "rotate-180" : ""
+                    className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-[#B8943E]" : "text-stone-400"
                     }`}
                   />
                 </button>

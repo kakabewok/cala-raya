@@ -1,28 +1,29 @@
+import Navbar from "@/components/home/Navbar";
+import HeroBento from "@/components/home/HeroBento";
+import BentoShowcase from "@/components/home/BentoShowcase";
+import BentoFeatures from "@/components/home/BentoFeatures";
+import SocialProof from "@/components/home/SocialProof";
+import PricingBento from "@/components/home/PricingBento";
+import ClosingCTA from "@/components/home/ClosingCTA";
+import Portfolio from "@/components/home/Portfolio";
 import FAQ from "@/components/home/Faq";
 import Footer from "@/components/home/Footer";
-import Hero from "@/components/home/Hero";
-import Navbar from "@/components/home/Navbar";
-import Portfolio from "@/components/home/Portfolio";
-import Reviews from "@/components/home/Reviews";
-import Invitation from "@/components/home/Invitation";
-import WhyUs from "@/components/home/WhyUs";
-import Website from "@/components/home/Website";
 import FloatingWhatsapp from "@/components/home/FloatingWhatsapp";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAF8F5] overflow-x-hidden">
       <Navbar />
-      <Hero />
-      <WhyUs />
-      <Invitation />
-      <Website />
+      <HeroBento />
+      <BentoShowcase />
+      <BentoFeatures />
+      <SocialProof />
       <Portfolio />
-      <Reviews />
+      <PricingBento />
+      <ClosingCTA />
       <FAQ />
       <Footer />
       <FloatingWhatsapp />
     </div>
   );
 }
-

@@ -16,7 +16,7 @@ function Hero() {
         to allow the new right-side elements to sit alongside the existing left-side content. 
       */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 w-full py-28 md:py-32 flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8 relative z-10">
-        
+
         {/* =========================================
             LEFT SIDE (EXISTING STRUCTURE - UNCHANGED) 
             ========================================= */}
@@ -28,14 +28,14 @@ function Hero() {
 
           {/* Headline */}
           <h1 className="uppercase text-[2.25rem] md:text-[3.25rem] lg:text-[3.75rem] leading-[1.1] font-semibold text-stone-900 mb-6 tracking-tight">
-          Ekspresikan Cerita Kamu {" "}
+            Ekspresikan Cerita Kamu {" "}
             {/* <br /> */}
             <span className="text-stone-400">Lewat Sentuhan Digital</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-[15px] md:text-lg text-stone-500 leading-relaxed max-w-lg mb-10">
-          Kustomisasi tanpa batas untuk menghadirkan tampilan digital yang benar-benar mewakili gayamu.
+            Kustomisasi tanpa batas untuk menghadirkan tampilan digital yang benar-benar mewakili gayamu.
           </p>
 
           {/* CTAs */}
@@ -83,14 +83,14 @@ function Hero() {
             Uses Option C (Layered Visual Composition) with glassmorphism floating cards.
         */}
         <div className="w-full lg:w-[45%] relative flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
-          
+
           {/* Main Abstract Background Shape (Represents an invitation card) */}
           <div className="relative w-[280px] sm:w-[320px] aspect-[4/5] bg-gradient-to-tr from-stone-200/40 to-stone-100/80 rounded-[2.5rem] border-[6px] border-white/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] backdrop-blur-sm lg:rotate-3 hover:rotate-0 transition-transform duration-500 group">
-            
+
             {/* Inner glow / gradient */}
             <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
-               <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-rose-200/40 rounded-full blur-3xl mix-blend-multiply group-hover:scale-110 transition-transform duration-700"></div>
-               <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-amber-100/40 rounded-full blur-2xl mix-blend-multiply group-hover:scale-110 transition-transform duration-700"></div>
+              <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-rose-200/40 rounded-full blur-3xl mix-blend-multiply group-hover:scale-110 transition-transform duration-700"></div>
+              <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-amber-100/40 rounded-full blur-2xl mix-blend-multiply group-hover:scale-110 transition-transform duration-700"></div>
             </div>
 
             {/* Floating Card 1: Save the Date */}
@@ -136,7 +136,7 @@ function Hero() {
             </div>
 
           </div>
-          
+
           {/* Subtle background decorative dashed circle */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] border border-stone-200/60 rounded-full -z-10 border-dashed"></div>
 
