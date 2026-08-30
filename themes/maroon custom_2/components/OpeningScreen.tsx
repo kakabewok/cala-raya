@@ -131,7 +131,7 @@ export default function OpeningScreen({
                 <p
                   className={`${ninfa.className} text-md text-neutral-600 tracking-widest font-light`}
                 >
-                  An Intimate Celebration of
+                  The Wedding of
                 </p>
                 <h1
                   className={`leading-20 transform -rotate-[27deg] ${amalfiCoast.className} text-5xl text-rose-900 tracking-widest font-light italic`}

@@ -143,7 +143,7 @@ const EventInfo = () => {
         width={115}
         height={115}
         alt="Kanan"
-        className="swing-left-slow absolute top-1/2 transform -translate-y-1/2 -left-11 rotate-[40deg]"
+        className="swing-left-slow absolute top-1/2 transform -translate-y-1/2 -left-18 rotate-[90deg]"
       />
     </section>
   );
