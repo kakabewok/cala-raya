@@ -8,6 +8,7 @@ import StylishBoldPage from "@/themes/stylishBold/StylishBoldPage";
 import { ThemeName } from "@/types/theme-name";
 import MaroonMonochromePage from "@/themes/maroon_monochrome/MaroonMonochromePage";
 import MagazinePageCustom from "@/themes/magazine_custom/MagazinePageCustom";
+import MagazinePage2 from "@/themes/magazine_custom_2/MagazinePage2";
 import StylishBoldPageCustom from "@/themes/stylishBold_custom/StylishBoldPageCustom";
 import MaroonPageCustom2 from "@/themes/maroon custom_2/MaroonPageCustom2";
 import MaroonPageCustom3 from "@/themes/maroon custom_3/MaroonPageCustom3";
@@ -18,6 +19,7 @@ export const themeMap: Record<ThemeName, React.ComponentType> = {
   floral: FloralPage,
   magazine: MagazinePage,
   magazine_custom: MagazinePageCustom,
+  magazine_custom_2: MagazinePage2,
   maroon: MaroonPage,
   maroon_custom: MaroonPageCustom,
   maroon_monochrome: MaroonMonochromePage,

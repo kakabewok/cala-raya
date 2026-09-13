@@ -4,6 +4,7 @@ export type ThemeName =
   | "floral"
   | "magazine"
   | "magazine_custom"
+   | "magazine_custom_2"
   | "maroon"
   | "maroon_custom"
   | "maroon_monochrome"
