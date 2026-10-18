@@ -13,35 +13,70 @@ const EventInfo = () => {
   const { invitationData: data } = useInvitation();
 
   const generateGoogleCalendarUrl = (rundown: Rundown): string => {
-    const date = rundown.date;
-    const startTime = rundown.start_time;
-    const endTime = rundown.end_time || startTime;
+      const dateObj = DateTime.fromJSDate(rundown.date as unknown as Date, { zone: 'Asia/Jakarta' });
+      const date = dateObj.toFormat('yyyy-LL-dd');
+  
+      const startTimeObj = DateTime.fromJSDate(rundown.start_time as unknown as Date, { zone: 'UTC' });
+      const endTimeObj = DateTime.fromJSDate((rundown.end_time || rundown.start_time) as unknown as Date, { zone: 'UTC' });
+  
+      const startTime = startTimeObj.toFormat('HH:mm:ss'); // "15:00:00" ✅
+      const endTime = endTimeObj.toFormat('HH:mm:ss');     // "16:00:00" ✅
+  
+      const start = DateTime.fromISO(`${date}T${startTime}`, { zone: 'Asia/Jakarta' })
+        .toUTC()
+        .toFormat("yyyyLLdd'T'HHmmss'Z'");
+  
+      const end = DateTime.fromISO(`${date}T${endTime}`, { zone: 'Asia/Jakarta' })
+        .toUTC()
+        .toFormat("yyyyLLdd'T'HHmmss'Z'");
+  
+      console.log('date:', date, '| startTime:', startTime, '| endTime:', endTime);
+      console.log('start formatted:', start);
+      console.log('end formatted:', end);
+  
+      const eventTitle = data?.event_title || "Wedding Event";
+      const location = rundown.location || "-";
+      const rundownTitle = rundown.title ? `(${rundown.title})` : '';
+      const description = `${eventTitle} will be held at ${location} ${rundownTitle}`;
+  
+      return `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+        `&text=${encodeURIComponent(eventTitle)}` +
+        `&dates=${start}/${end}` +
+        `&details=${encodeURIComponent(description)}` +
+        `&location=${encodeURIComponent(rundown.location_url || '')}` +
+        `&ctz=Asia/Jakarta`;
+    };
 
-    const startDateTimeISO = `${date}T${startTime}`;
-    const endDateTimeISO = `${date}T${endTime}`;
+  // const generateGoogleCalendarUrl = (rundown: Rundown): string => {
+  //   const date = rundown.date;
+  //   const startTime = rundown.start_time;
+  //   const endTime = rundown.end_time || startTime;
 
-    const start = DateTime.fromISO(startDateTimeISO)
-      .toUTC()
-      .toFormat("yyyyLLdd'T'HHmmss'Z'");
-    const end = DateTime.fromISO(endDateTimeISO)
-      .toUTC()
-      .toFormat("yyyyLLdd'T'HHmmss'Z'");
+  //   const startDateTimeISO = `${date}T${startTime}`;
+  //   const endDateTimeISO = `${date}T${endTime}`;
 
-    const eventTitle = data?.event_title || "Wedding Event";
-    const location = rundown.location || "-";
-    const rundownTitle = `(${rundown.title})` || ``;
-    const description = `${eventTitle} will be held at ${location} ${rundownTitle}`;
+  //   const start = DateTime.fromISO(startDateTimeISO)
+  //     .toUTC()
+  //     .toFormat("yyyyLLdd'T'HHmmss'Z'");
+  //   const end = DateTime.fromISO(endDateTimeISO)
+  //     .toUTC()
+  //     .toFormat("yyyyLLdd'T'HHmmss'Z'");
 
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-      eventTitle
-    )}&dates=${start}/${end}&details=${encodeURIComponent(
-      description
-    )}&location=${encodeURIComponent(
-      rundown.location_url || ""
-    )}&ctz=Asia/Jakarta`;
+  //   const eventTitle = data?.event_title || "Wedding Event";
+  //   const location = rundown.location || "-";
+  //   const rundownTitle = `(${rundown.title})` || ``;
+  //   const description = `${eventTitle} will be held at ${location} ${rundownTitle}`;
 
-    return googleCalendarUrl;
-  };
+  //   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+  //     eventTitle
+  //   )}&dates=${start}/${end}&details=${encodeURIComponent(
+  //     description
+  //   )}&location=${encodeURIComponent(
+  //     rundown.location_url || ""
+  //   )}&ctz=Asia/Jakarta`;
+
+  //   return googleCalendarUrl;
+  // };
 
   return (
     <section className="py-6 px-10 relative w-full h-auto bg-white overflow-hidden">
