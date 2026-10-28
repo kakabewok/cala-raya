@@ -82,9 +82,20 @@ export default function GroomsSection() {
         <div
           className={`${poppins.className} w-full flex items-end justify-between content-between`}
         >
-          <div className="w-[140px] text-white text-xs font-normal text-left">
+           {data?.id === 47 ? (
+            <p className="w-[180px] text-white text-xs font-normal text-left">
+              Putra Dari <br />
+              Bapak Soewarso <br />
+              Ibu Early Chofiaty
+            </p>
+          ) : (
+            <div className="w-[140px] text-white text-xs font-normal text-left">
+              {data?.host_one_additional_info}
+            </div>
+          )}
+          {/* <div className="w-[140px] text-white text-xs font-normal text-left">
             {data?.host_one_additional_info}
-          </div>
+          </div> */}
           <div
             className={`${!data?.host_one_social_media ? "opacity-0" : ""
               } flex gap-2 items-center text-white text-xs bg-transparent rounded-none border border-white cursor-pointer px-3 py-2`}

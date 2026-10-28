@@ -95,9 +95,17 @@ export default function BrideSection() {
               {`@${data?.host_two_social_media}`}
             </Link>
           </div>
-          <div className="w-[140px] text-white text-xs font-normal text-right">
-            {data?.host_two_additional_info}
-          </div>
+          {data?.id === 47 ? (
+            <p className="w-[180px] text-white text-xs font-normal text-right">
+              Putri Dari <br />
+              Bapak Muhardi <br />
+              Ibu Siti Bahriah
+            </p>
+          ) : (
+            <div className="w-[140px] text-white text-xs font-normal text-right">
+              {data?.host_two_additional_info}
+            </div>
+          )}
         </div>
       </div>
     </section>
